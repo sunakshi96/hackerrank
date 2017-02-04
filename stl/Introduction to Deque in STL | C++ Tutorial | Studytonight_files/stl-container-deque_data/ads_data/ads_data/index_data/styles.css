@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+body, body * {vertical-align:baseline; border:0 none; outline:0; padding:0; margin:0;}
+#container {position:absolute; overflow:hidden; cursor:pointer; -webkit-transform: rotate(-0.0000000001deg); transform: rotate(-0.0000000001deg); background:#fff;}
+#bg {position:absolute; width:1456px; height:180px; background:#fff;}
+#searchbar {position:absolute;}
+#bar {position:absolute;}
+#logoCover {position:absolute; width:360px; height:180px; background:#fff;}
+#mikeCover {position:absolute; left:1300px; width:156px; height:180px; background:#fff;}
+#bar2 {position:absolute;}
+#query {position:absolute; width:1400px; font-family:'Roboto', sans-serif; font-size:54px; color:#000; -webkit-font-smoothing:antialiased;}
+#g {position:absolute;}
+#g0 {position:absolute;}
+#g1 {position:absolute;}
+#g2 {position:absolute;}
+#g3 {position:absolute;}
+#copy {position:absolute;}
+#cta {position:absolute;}
+#exit {position:absolute; left:0px; top:0px; cursor:pointer; border:1px solid #404040; box-sizing:border-box; -ms-box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+
+.sp {position:absolute; left:50%; top:50%; width:20px; height:20px; margin-left:-15px; margin-top:-15px;}
+.sp-circle {
+    border: 4px rgba(0, 0, 0, 0.2) solid;
+    border-top: 4px white solid;
+    border-radius: 20px;
+    animation: spCircRot .6s infinite linear;
+
+    -webkit-border: 4px rgba(0, 0, 0, 0.2) solid;
+    -webkit-border-top: 4px white solid;
+    -webkit-border-radius: 20px;
+    -webkit-animation: spCircRot .6s infinite linear;
+
+    -moz-border: 4px rgba(0, 0, 0, 0.2) solid;
+    -moz-border-top: 4px white solid;
+    -moz-border-radius: 20px;
+    -moz-animation: spCircRot .6s infinite linear;
+}
+@keyframes spCircRot { from {transform: rotate(0deg);} to {transform: rotate(359deg);} }
+@-moz-keyframes spCircRot { from {-moz-transform: rotate(0deg);} to {-moz-transform: rotate(359deg);} }
+@-webkit-keyframes spCircRot { from {-webkit-transform: rotate(0deg);} to {-webkit-transform: rotate(359deg);} }
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}

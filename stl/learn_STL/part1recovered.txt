@@ -1,0 +1,408 @@
+
+===============================
+       VECTORS
+===============================
+
+1.) Nested Definition of vectors
+----------------
+vector< vector<int> >;//right one!
+vector<vector<int>> ;//wrong one!
+---------------
+
+2.) vector is an implementation of an array!
+----------------
+vector <int> v(10);
+for(int i=0;i<10;i++)
+{
+	v[i]=(i+1)*(i+1);
+}
+for(int i=9;i>0;i--)
+{
+	v[i] -= v[i-1];
+}
+---------------
+
+3.) Size of vector
+-----------
+int elements=v.size();
+----------
+
+4.) To check if vector is empty or not!
+---------------
+bool is_nonempty_notgood=(v.size()>=0);//Try to avoid this.
+bool is_nonempty_ok=!v.empty();
+---------------
+
+5.)Inserting elements in the vector:
+------------------
+vector <int> v;
+for(int i=1;i<1000000; i *=2)
+{
+	v.push_back();
+} 
+int elements_count=v.size();
+------------------
+
+6.) How to resize the vector function
+-------------------
+vector <int> v(20);
+for(int i=0;i<20;i++)
+{
+	v[i]=i+1;
+}
+v.resize(25);
+for(int i=20;i<25;i++)
+{
+	v.push_back(i*2);//Writes the elements with indices [25..30] not [20..25] 
+}
+----------------------
+
+7.) how to completely erase the container?
+Use the clear() function to completely clear the function.
+
+8.) How to initialise the vector with a value?
+---------------
+vector <string> names(20,"Unknown");
+---------------
+
+9.) How to construct the two dimensional matrix?
+----------------
+int N,M;
+//..
+vector <vector<int> > Matrix(N, vector<int> (M,-1));
+//To create a vector of size N*M and initialise it with -1.
+----------------
+
+10.)How to pass a vector to a function?
+------------------
+void some_function(vector <int> v){
+//Never do it unless you are sure what to do!!
+}
+//Use it instead!
+void some_function(const vector<int>& v)
+{
+//OK
+}
+//to modify the vector use it.
+void some_function(vector <int>& v)
+{
+//Correct
+v[0]++;	
+}
+--------------------
+
+==========================
+	PAIRS
+==========================
+
+1.) Introduction to pairs
+----------------------------
+template <typename T1, typename T2> struct pair{
+	T1 first;
+	T2 second;
+};
+-----------------------------
+
+2.) Advantage of pairs is to compare the elements..
+------------------------
+pair <string, pair <int,int> >P;
+string s=P.first;// extract string
+int x=P.second.first;//extract first string
+int y=P.second.second;//extract second int
+-----------------------------
+
+3.)Iterators
+----------------------------
+//Using pointers and == to reverse an array
+template <typename T> void reverse_array(T *first, T *last){
+	if(first!=last){
+		while(true)
+		{
+			swap(*first,*last);
+			first++;
+			if(first==last)
+			break;
+			last--;
+			if(first==last)
+			{
+				break;
+			}
+		}
+	}
+}
+ 
+------------------
+a.) to create iterator we must specify its type: 
+---------------------
+vector <int> v;
+//..
+//Traverse all container, from begin() to end()
+for(vector <int>:: iterator it=v.begin(); it !=v.end();it++)
+ *it++;
+--------------------
+use '!=' instead of '<' and 'empty()' instead of 'size()'
+
+b.) find() algorithm:
+------------------------
+vector <int> v;
+for(int i=1;i<100;i++)
+{
+	v.push_back(i*i);
+}
+if(find(v.begin(),v.end(),49) != v.end())
+{
+	//
+}
+//to get the index of the element found, one should subtract the beginning iterator from the result of find().
+int i=(find(v.begin(),v.end(),49)-v.begin());
+if(i<v.size())
+{
+//..
+}
+c.) min_element and max_element():
+----------------------------
+int data[5]={1,5,2,4,3};
+vector <int> X(data, data+5);
+int v1=*max_element(X.begin(),X.end());//Returns the value of max element in the vector.
+int i1=min_element(X.begin(),X.end())-X.begin();
+//returns index of min element in vector...
+
+int v2=*max_element(data,data+5);//returns value of max element in the array.
+int i3=min_element(data,data+5)-data;
+//return index of min element in the array.
+-----------------------------
+
+d.) Macros used : #define all(c) c.begin(), c.end()
+
+e.) sort()
+--------------------------------
+vector <int> X;
+sort(X.begin(),X.end());//Sort array in ascending order.
+sort(all(X));//sort array in ascending order, use our #define 
+sort(X.rbegin(),X.rend());//Sort array in descending order using with reverse iterators.
+---------------------------------
+
+4.)Compiling STL programs::
+a.) error functions:
+----------------------------
+void f(const vector<int>& v)
+{
+	for(vector <int>::iterator it=v.begin());//where is the error?
+		//..
+	//error is we are trying to create the non-const iterator from a const object with the begin()
+}
+
+//solution is::
+int f(const vector<int>& v)
+{
+	int r=0;
+	//Traverse the vector using const_iterator
+	for(vector <int>::const_iterator it=v.begin(); it!=v.end();it++)
+	{
+		r +=(*it)*(*it);
+	}
+	return r;
+}
+----------------------------
+
+
+b.)Typeof container::It is used to define the type of container:
+#define tr(container, it)\
+	for(typeof(container.begin())it=container.begin();it!=container.end();it++)
+	 
+//example:
+void f(const vector <int>& v){
+	int r=0;
+	tr(v,it){
+		r +=(*it)*(*it);
+	}
+	return r;
+}
+
+5.) Data Manipulation in vectors::
+a.) Insert element in vector:
+----------------------------------
+vector <int> v;
+//...
+v.insert(1,42);//insert the value 42 after the first.
+vector <int>v;
+vector <int> v2;
+//...
+//Shift all elements from second to last to the appropriate number of elements.
+//Then copy the contents of v2 into v;
+v.insert(1,all(v2));
+----------------------------------
+
+b.) Erase the elements from the vector::
+----------------------------------
+erase(iterator);
+erase(begin iterator,end iterator);
+----------------------------------
+
+
+5.) String::
+-----------------------------------
+string s="hello";
+string s1=s.substr(0,3);//"hel"
+string s2=s.substr(1,3);//"ell"
+string s3=s.substr(0,s.length-1);"hell"
+s4=s.substr(1);//"ello"
+----------------------------------
+
+
+
+6.) Sets:
+a.) declaration::
+----------------------------------
+set <int>s;
+
+for(int i=1;i<=100;i++)
+{
+	s.insert(i);//insert 100 elements, [1..100].
+}
+s.insert(42);//does nothing, 42 already exists in set.
+
+for(int i=42;i<=100;i =+2)
+{
+	s.erase(i);//erase even values/
+}
+
+int n=int(s.size());//n will be 50.
+------------------------------
+
+b.) To traverse the set using iterators:
+-------------------------------
+//calculate the sum of elements in set.
+set <int> S;
+//...
+int r=0;
+for(set<int> ::const_iterator it S.begin(); it!=S.end();it++)
+{
+	r += *it;
+}
+//this could also be impemented using the iterators too!!
+set < pair<string, pair< int, vector<int> > > > SS:
+int total=0;
+tr(SS,it)
+{
+	total += it->second.first;
+}
+------------------------------
+
+c.) To find the element using the iterator::
+------------------------------
+set <int> s;
+//..
+if(s.find(42)!=s.end()){
+	//42 is present in set.
+}
+//this algorithm uses O(N) algorithm.
+//dont use container.count() to check if it is empty or not!
+------------------------------
+
+ d.) Macros: which checks the presence of elements in the Set.
+------------------------------
+#define present(container, element) (container.find(element)!=container.end()
+
+#define cpresent(container, element) (find(all(container),element) !=container.end())
+------------------------------
+
+d.)Erase()
+------------------------------
+
+set <int> s;
+//..
+set <int>::iterator it1,it2;
+it1=s.find(10);
+it2=s.find(100);
+//will work if it1 and it2 are valid operators ,i.e values 10 and 100 are present in the Set.
+s.erase(it1,it2);//Note that 10 will be deleted, but 100 will remain in the container.
+------------------------------
+
+e.)How to get rid of duplicates in the Set?
+------------------------------
+vector <int> v;
+//..
+set <int> s(all(v));
+vector <int> v2(all(s));
+--------------------
+
+7.) MAPS
+a.)To traverse maps :
+---------------------
+map <string int> m;
+int r=0;
+tr(M,it)
+{
+	r +=it->second;
+} 
+----------------------
+
+b.)differnece between Map::find() and Map::operator[]
+---> map::find()=It doesn't changes the content of the Map, operator[] creates a new element if it doesnt exists.
+-----------------------
+void f(const map <string,int> M)
+{
+	if(M["the meaning"]==42){
+	//Error! Cannot use [] on constant map objects!
+	}
+	if(M.find("the meaning")!=M.end() && M.find("the meaning")->second==42)
+	{//correct
+	cout<<"Dont Panic!"<<endl;
+	}
+}
+
+8.)String Streams:;
+a.) Istringstream: It allows you to read from the string 
+--------------------------------
+void f(const string& s){
+	//Construct an object to parse strings..
+	istringstream is(s);
+	
+	//vector to store data.
+	vector <int> v;
+	//Read the integer while possible and add it to the vector.
+	int tmp;
+	while(is >> tmp)
+	{
+		v.push_back(tmp);
+	}
+}
+---------------------------------
+
+b.)Ostringstream: Allows you to do formatting of the output.
+-------------------------------------------
+
+string f(const vector<int>& v){
+	//construct an object to do the formatted output.
+	ostringstream os;
+	
+	//copy all elements from the vector <int> to string stream as text 
+	tr(v,it)
+	{
+		os<<' '<<*it;
+	}
+	//Get the string from  string source.
+	string s=os.str();
+	//remove the first space character.
+	if(!s.empty()){
+	s=s.substr(1);
+	}
+	return s;
+}
+-------------------------------------------------
+
+
+9.) List of short top coder macros::
+----------------------------------------
+typedef vector <int> vi;
+typedef vector <vi> vvi;
+typedef vector <int, int> ii;
+#define sz(a) int(a.size())
+#define pb push_back()
+#define all(c) c.begin(), c.end()
+#define tr(c,i) for(typeof(c.begin() i=c.begin();i!=c.end();i++)
+#define present(c,x) (c.find(x)!=c.end())
+#define cpresent(c,x) (find(all(c),x)!=c.end())
+
+

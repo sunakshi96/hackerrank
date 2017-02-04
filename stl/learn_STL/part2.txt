@@ -1,0 +1,127 @@
+//
+1.)Creating vector from Map::
+----------------------------------------------
+
+map <string, int> M;
+vector <pair <string ,int> > V(all(M));
+//remember all(c) stands for c.begin(),c.end()
+
+----------------------------------------------
+
+
+2.)copy data between containers
+----------------------------------------------
+
+vector <int> v1;
+vector <int> v2;
+//...
+//Now copy v2 to the end of v1
+v1.resize(v1.size()+v2.size());
+//ensure v1 has enough space
+copy(all(v2),v1.end()-v2.size());
+//copy v2 elements right after v1 ones.
+
+----------------------------------------------
+
+
+3.)Copy with inserter(s)
+----------------------------------------------
+vector <int> v;
+//
+set <int> s;
+//add some elements to set
+copy(all (v),inserter(s));
+---------------------------------------------- 
+
+
+4.) Macro tr:
+----------------------
+tr(container,iterator)
+{
+	s.insert(*iterator);
+}
+----------------------------------------------
+
+
+5: Set Operations::
+   a.)set_intersection()
+----------------------------------------------
+   int data1[]={1,2,5,6,8,9,10};
+   int data2[]={0,2,3,4,7,8,10};
+   vector <int> v1(data1, data1+sizeof(data1)/sizeof(data1[0]));
+   vector <int> v2(data2, data2+sizeof(data2)/sizeof(data2[0]));
+   
+   vector <int> tmp(max(v1.size(),v2.size()));
+   vector <int> res=vector <int> (tmp.begin(),set_intersection(all(v1),all(v2),tmp.begin()));
+-----------------------------------------------
+   b.)to count the number of elements in the intersection set:
+   int count=set_intersection(all(v1),all(v2),tmp.begin())-tmp.begin();
+-----------------------------------------------
+   c.) Another method to of set_symmetric_difference
+------------------------------------------------
+   set <int> s1,s2;
+   for(int i=0;i<500;i++)
+	{
+	s1.insert(i*(i+1)%1000);
+	s2.insert(i*i*i%1000);
+
+	}
+   static int tmp[5000];//greater than required
+   vector <int> res=vi(tmp,set_symmetric_difference(all(s1),all(s2),tmp));
+   int cnt=set_symmetric_difference(all(s1),all(s2),tmp)-tmp;
+--------------------------------------------------
+
+
+
+6.) Calculating Algorithms
+ a) To find the sum of values::
+-------------------------------------------------
+
+vector <int> v;
+int sum=accumulate(all(v),0);
+//or
+vector <int> v;
+long long sum=accumulate(all(v),(long long)0);
+
+-------------------------------------------------
+
+ b.) to find the product
+---------
+vector <int> v;
+double product=accumulate(all(v),double(1),multiplies<double>());
+//dont forget to start with 1
+-------------------------------------------------
+
+c.)Inner product:
+vector <int> v1;
+vector <int> v2;
+for(int i=0;i<3;i++)
+{
+	v1.push_back(10-i);
+	v2.push_back(i+1);
+}
+int r=inner_product(all(v1),v2.begin(),0);
+// 'r' will hold v1[0]*v2[0]+v1[1]*v2[1]+v1[2]*v2[2];
+ 
+
+d.)Use of Convoltion filter::
+--------------------------------------------------
+
+set <int> values_ordered_data(all(data));
+int n=sz(data)://int n=int(data.size());
+vector <int> convolution_kernel(n);
+for(int i=0;i<n;i++)
+{
+	convolution_kernel[i]=(i+1)*(n-i);
+}
+double result=double(inner_product(all(ordered_data),convolution_kernel,0))/accumulate(all(convolution_kernel),0);
+--------------------------------------------------
+
+e.) How to ensure V[0]*V[N-1]+V[1]*V[N-2]+...+V[N-1]*V[0]
+
+--------------------------------------------------
+vector <int>v;
+//...
+int r=innner_product(all(v),v.rbegin(),0);
+--------------------------------------------------
+

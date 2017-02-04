@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="fragment" content="!">
+  <title>Power up C++ with the Standard Template Library: Part 2  &#8211;  topcoder</title>
+  <meta name="description" content="">
+  <meta name="author" content="@topcoder" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgEGVFNbGwYGXVZaBgQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function p(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="https://www.topcoder.com/wp-content/themes/tcs-responsive/favicon.ico" />
+
+    <!-- External JS -->
+  <!--[if lt IE 9]>
+  <script src="/js/html5shiv.js" type="text/javascript"></script>
+  <script src="/js/respond.min.js" type="text/javascript"></script>
+  <script src="/js/modernizr.js" type="text/javascript"></script>
+  <link rel = "stylesheet" href = "/css/ie.css ? v = 201407282" / >
+  <![endif]-->
+  <script type="text/javascript">
+    var wpUrl = "https://www.topcoder.com";
+    var tcApiRUL = 'https://api.topcoder.com/v2';
+    var myFiltersURL = '//lc1-user-settings-service.herokuapp.com';
+    var siteURL = 'https://www.topcoder.com';
+    var communityURL = '//community.topcoder.com';
+    var base_url = 'https://www.topcoder.com/wp-content/themes/tcs-responsive';
+    var stylesheet_dir = 'https://www.topcoder.com/wp-content/themes/tcs-responsive/css';
+    var autoRegister = '';
+    var timezone_string = "America/New_York";
+    var challengeType;
+    var cbApiURL = 'https://coderbits.com';
+  </script>
+
+<link rel='stylesheet' id='layerslider-css'  href='https://www.topcoder.com/wp-content/plugins/LayerSlider/static/css/layerslider.css?ver=5.4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='ls-google-fonts-css'  href='https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900%7COpen+Sans:300%7CIndie+Flower:regular%7COswald:300,regular,700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='tchook-style-css'  href='https://www.topcoder.com/wp-content/plugins/TcApi-hookup/includes/css/tcapi.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tchook-selectyze-style-css'  href='https://www.topcoder.com/wp-content/plugins/TcApi-hookup/includes/css/Selectyze.jquery.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='advanced-responsive-video-embedder-css'  href='https://www.topcoder.com/wp-content/plugins/advanced-responsive-video-embedder/public/advanced-responsive-video-embedder-public.css?ver=6.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive-lightbox-fancybox-css'  href='https://www.topcoder.com/wp-content/plugins/responsive-lightbox/assets/fancybox/jquery.fancybox-1.3.4.css?ver=1.5.7' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-syntax-css-css'  href='https://www.topcoder.com/wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='default-css'  href='https://www.topcoder.com/mf/dist/css/default.min.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='page-list-style-css'  href='https://www.topcoder.com/wp-content/plugins/page-list/css/page-list.css?ver=4.2' type='text/css' media='all' />
+<!-- This site uses the Yoast Google Analytics plugin v5.2.7 - Universal enabled - https://yoast.com/wordpress/plugins/google-analytics/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-6340959-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('require', 'displayfeatures');
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Yoast Google Analytics --><script type='text/javascript' src='https://www.topcoder.com/wp-content/plugins/LayerSlider/static/js/greensock.js?ver=1.11.8'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js?ver=3.9.1'></script>
+<script>window.jQuery || document.write('<script src="https://www.topcoder.com/wp-content/themes/tcs-responsive/js/vendor/jquery/jquery.js"><\/script>')</script>
+<script type='text/javascript' src='https://www.topcoder.com/wp-content/plugins/LayerSlider/static/js/layerslider.kreaturamedia.jquery.js?ver=5.4.0'></script>
+<script type='text/javascript' src='https://www.topcoder.com/wp-content/plugins/LayerSlider/static/js/layerslider.transitions.js?ver=5.4.0'></script>
+<script type='text/javascript' src='https://www.topcoder.com/wp-content/plugins/responsive-lightbox/assets/fancybox/jquery.fancybox-1.3.4.js?ver=1.5.7'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var rlArgs = {"script":"fancybox","selector":"lightbox","customEvents":"","activeGalleries":"0","modal":"0","showOverlay":"1","showCloseButton":"1","enableEscapeButton":"1","hideOnOverlayClick":"1","hideOnContentClick":"0","cyclic":"0","showNavArrows":"1","autoScale":"1","scrolling":"yes","centerOnScroll":"1","opacity":"1","overlayOpacity":"70","overlayColor":"#666","titleShow":"1","titlePosition":"outside","transitions":"fade","easings":"swing","speeds":"300","changeSpeed":"300","changeFade":"100","padding":"5","margin":"5","videoWidth":"1080","videoHeight":"720"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.topcoder.com/wp-content/plugins/responsive-lightbox/js/front.js?ver=1.5.7'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.topcoder.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.topcoder.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Power up C++ with the Standard Template Library: Part 1' href='https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/' />
+<link rel='next' title='Prime Numbers, Factorization and Euler Function' href='https://www.topcoder.com/community/data-science/data-science-tutorials/prime-numbers-factorization-and-euler-function/' />
+<meta name="generator" content="WordPress 3.9.1" />
+<link rel='shortlink' href='https://www.topcoder.com/?p=15642' />
+<meta name="google-site-verification" content="UA-6340959-1" />
+<meta name="google-publisher-plugin-pagetype" content="page"><meta name="google-site-verification" content="13nbPcn6VRWD2zdq-CEG0LbT00aOwSyhofA3OAEmbEI" /><meta name="google-site-verification" content="13nbPcn6VRWD2zdq-CEG0LbT00aOwSyhofA3OAEmbEI" /><meta name="google-site-verification" content="13nbPcn6VRWD2zdq-CEG0LbT00aOwSyhofA3OAEmbEI" /><meta name="google-site-verification" content="p0OVxcrMQ2HYDsGgaRLRS9bsXuXmjKVcTGZnXNphIUI" />	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+  <style>
+    .btn, a.btn, .blogCategoryMenu a, .searchBox input, .subscribeBox input {
+      behavior: url("https://www.topcoder.com/wp-content/themes/tcs-responsive/css/PIE.htc");
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+<div id="wrapper" class="tcssoUsingJS">
+<div class="ng-header-bootstrap"></div>
+<!-- Bugfix: I-108496 hidden element needed for non-firefox browsers to detect cache-persist status of page, used for above code to display member details -->
+<input type='hidden' id='cache-persist'>
+  <!-- /#header -->
+
+<script type="text/javascript">
+	var siteurl = "https://www.topcoder.com";
+</script>
+<div class="content">
+	<div id="main">
+
+		<!-- Start Overview Page-->
+		<div class="pageTitleWrapper">
+			<div class="pageTitle container">
+				<h2 class="overviewPageTitle PowerupC++withtheStandardTemplateLibrary:Part2PageTitle">Power up C++ with the Standard Template Library: Part 2</h2>
+			</div>
+		</div>
+
+
+
+
+		<article id="mainContent" class="splitLayout overviewPage">
+			<div class="container">
+				<div class="rightSplit  grid-3-3">
+					<div class="mainStream postContent pageContent grid-2-3">
+
+						<p>By&nbsp;<strong><a class="tc_coder coder" href="https://www.topcoder.com/member-profile/DmitryKorolev" style="color: #DDCC00">DmitryKorolev</a></strong>&#8211; <em>TopCoder Member</em></p>
+In this tutorial we will use some macros and typedefs from <a href=
+"https://www.topcoder.com/community/data-science/data-science-tutorials/power-up-c-with-the-standard-template-library-part-1/">
+Part I</a> of the tutorial.
+<p>
+
+<p>&nbsp;<a href="#creating">Creating Vector from Map</a><br />
+&nbsp;<a href="#copying">Copying Data Between Containers</a><br />
+&nbsp;<a href="#merging">Merging Lists</a><br />
+&nbsp;<a href="#calculating">Calculating Algorithms</a><br />
+&nbsp;<a href="#nontrivial">Nontrivial Sorting</a><br />
+&nbsp;<a href="#using">Using Your Own Objects in Maps and Sets</a><br />
+&nbsp;<a href="#memory">Memory Management in Vectors</a><br />
+&nbsp;<a href="#algorithms">Implementing Real Algorithms with STL</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dfs">Depth-first Search (DFS)</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#other">A word on other container types
+and their usage</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#queue">Queue</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#bfs">Breadth-first Search (BFS)</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#priority">Priority_Queue</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dijkstra1">Dijkstra</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dijkstra2">Dijkstra
+priority_queue</a><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#dijkstra3">Dijkstra by set</a><br />
+&nbsp;<a href="#summary">What Is Not Included in STL</a></p>
+
+<p><a id="creating" name="creating"></a><span class="bodySubtitle">Creating
+Vector from Map</span><br />
+As you already know, map actually contains pairs of element. So you can write
+it in like this:</p>
+<pre class="code">
+ map&lt;string, int&gt; M; 
+ // ... 
+ vector&lt; pair&lt;string, int&gt; &gt; V(all(M)); // remember all(c) stands for 
+ (c).begin(),(c).end()&nbsp;
+</pre>Now vector will contain the same elements as map. Of course, vector will
+be sorted, as is map. This feature may be useful if you are not planning to
+change elements in map any more but want to use indices of elements in a way
+that is impossible in map.
+<p>
+
+<p><a id="copying" name="copying"></a><span class="bodySubtitle">Copying data
+between containers</span><br />
+Let&#8217;s take a look at the copy(&#8230;) algorithm. The prototype is the
+following:</p>
+<pre class="code">
+ copy(from_begin, from_end, to_begin); 
+</pre>This algorithm copies elements from the first interval to the second one.
+The second interval should have enough space available. See the following code:
+<pre class="code">
+ vector&lt;int&gt; v1;
+ vector&lt;int&gt; v2; 
+ &nbsp;
+ // ... 
+ &nbsp;
+ // Now copy v2 to the end of v1
+ v1.resize(v1.size() + v2.size()); 
+ // Ensure v1 have enough space 
+ copy(all(v2), v1.end() - v2.size()); 
+ // Copy v2 elements right after v1 ones 
+ &nbsp;
+</pre>Another good feature to use in conjunction with copy is inserters. I will
+not describe it here due to limited space but look at the code:
+<pre class="code">
+ vector&lt;int&gt; v; 
+ // ... 
+ set&lt;int&gt; s; 
+ // add some elements to set
+ copy(all(v), inserter(s)); 
+</pre>The last line means:
+<pre class="code">
+ tr(v, it) { 
+// remember traversing macros from Part I
+      s.insert(*it); 
+ } 
+&nbsp;
+</pre>But why use our own macros (which work only in gcc) when there is a
+standard function? It’s a good STL practice to use standard algorithms like
+copy, because it will be easy to others to understand your code.
+<p>
+
+<p>To insert elemements to vector with push_back use back_inserter, or
+front_inserter is available for deque container. And in some cases it is useful
+to remember that the first two arguments for ‘copy’ may be not only begin/end,
+but also rbegin/rend, which copy data in reverse order.</p>
+
+<p><a id="merging" name="merging"></a><span class="bodySubtitle">Merging
+lists</span><br />
+Another common task is to operate with sorted lists of elements. Imagine you
+have two lists of elements &#8212; A and B, both ordered. You want to get a new list
+from these two. There are four common operations here:</p>
+
+<ul>
+    <li>&#8216;union&#8217; the lists, R = A+B</li>
+
+    <li>intersect the lists, R = A*B</li>
+
+    <li>set difference, R = A*(~B) or R = A-B</li>
+
+    <li>set symmetric difference, R = A XOR B</li>
+</ul>STL provides four algorithms for these tasks: set_union(&#8230;),
+set_intersection(&#8230;), set_difference(&#8230;) and set_symmetric_difference(&#8230;).
+They all have the same calling conventions, so let&#8217;s look at set_intersection.
+A free-styled prototype would look like this:
+<pre class="code">
+end_result = set_intersection(begin1, end1, begin2, end2, begin_result);
+</pre>Here [begin1,end1) and [begin2,end2) are the input lists. The
+'begin_result' is the iterator from where the result will be written. But the
+size of the result is unknown, so this function returns the end iterator of
+output (which determines how many elements are in the result). See the example
+for usage details:
+<pre class="code">
+int data1[] = { 1, 2, 5, 6, 8, 9, 10 }; 
+int data2[] = { 0, 2, 3, 4, 7, 8, 10 }; 
+&nbsp;
+vector&lt;int&gt; v1(data1, data1+sizeof(data1)/sizeof(data1[0]));
+vector&lt;int&gt; v2(data2, data2+sizeof(data2)/sizeof(data2[0])); 
+&nbsp;
+vector&lt;int&gt; tmp(max(v1.size(), v2.size()); 
+&nbsp;
+vector&lt;int&gt; res = vector&lt;int&gt; (tmp.begin(), set_intersection(all(v1), all(v2), tmp.begin());
+</pre>Look at the last line. We construct a new vector named 'res'. It is
+constructed via interval constructor, and the beginning of the interval will be
+the beginning of tmp. The end of the interval is the result of the
+set_intersection algorithm. This algorithm will intersect v1 and v2 and write
+the result to the output iterator, starting from 'tmp.begin()'. Its return
+value will actually be the end of the interval that forms the resulting
+dataset.
+<p>
+
+<p>One comment that might help you understand it better: If you would like to
+just get the number of elements in set intersection, use int cnt =
+set_intersection(all(v1), all(v2), tmp.begin()) – tmp.begin();</p>
+
+<p>Actually, I would never use a construction like ' vector&lt;int&gt; tmp'. I
+don't think it's a good idea to allocate memory for each set_*** algorithm
+invoking. Instead, I define the global or static variable of appropriate type
+and enough size. See below:</p>
+<pre class="code">
+set&lt;int&gt; s1, s2; 
+for(int i = 0; i &lt; 500; i++) { 
+        s1.insert(i*(i+1) % 1000); 
+        s2.insert(i*i*i % 1000); 
+} 
+&nbsp;
+static int temp[5000]; // greater than we need 
+&nbsp;
+vector&lt;int&gt; res = vi(temp, set_symmetric_difference(all(s1), all(s2), temp)); 
+int cnt = set_symmetric_difference(all(s1), all(s2), temp) – temp;
+&nbsp;
+</pre>Here 'res' will contain the symmetric difference of the input datasets.
+<p>
+
+<p>Remember, input datasets need to be sorted to use these algorithms. So,
+another important thing to remember is that, because sets are always ordered,
+we can use set-s (and even map-s, if you are not scared by pairs) as parameters
+for these algorithms.</p>
+
+<p>These algorithms work in single pass, in O(N1+N2), when N1 and N2 are sizes
+of input datasets.</p>
+
+<p><a id="calculating" name="calculating"></a><span class=
+"bodySubtitle">Calculating Algorithms</span><br />
+Yet another interesting algorithm is accumulate(...). If called for a vector of
+int-s and third parameter zero, accumulate(...) will return the sum of elements
+in vector:</p>
+<pre class="code">
+vector&lt;int&gt; v; 
+// ... 
+int sum = accumulate(all(v), 0); 
+</pre>The result of accumulate() call always has the type of its third
+argument. So, if you are not sure that the sum fits in integer, specify the
+third parameter's type directly:
+<pre class="code">
+vector&lt;int&gt; v; 
+// ... 
+long long sum = accumulate(all(v), (long long)0); &nbsp;
+</pre>Accumulate can even calculate the product of values. The fourth parameter
+holds the predicate to use in calculations. So, if you want the product:
+<pre class="code">
+vector&lt;int&gt; v; 
+// ... 
+double product = accumulate(all(v), double(1), multiplies&lt;double&gt;()); 
+// don’t forget to start with 1 !
+</pre>Another interesting algorithm is inner_product(...). It calculates the
+scalar product of two intervals. For example:
+<pre class="code">
+vector&lt;int&gt; v1; 
+vector&lt;int&gt; v2; 
+for(int i = 0; i &lt; 3; i++) { 
+      v1.push_back(10-i); 
+      v2.push_back(i+1); 
+} 
+int r = inner_product(all(v1), v2.begin(), 0); 
+</pre>'r' will hold (v1[0]*v2[0] + v1[1]*v2[1] + v1[2]*v2[2]), or
+(10*1+9*2+8*3), which is 52.
+<p>
+
+<p>As for ‘accumulate’ the type of return value for inner_product is defined by
+the last parameter. The last parameter is the initial value for the result. So,
+you may use inner_product for the hyperplane object in multidimensional space:
+just write inner_product(all(normal), point.begin(), -shift).</p>
+
+<p>It should be clear to you now that inner_product requires only increment
+operation from iterators, so queues and sets can also be used as parameters.
+Convolution filter, for calculating the nontrivial median value, could look
+like this:</p>
+<pre class="code">
+set&lt;int&gt; values_ordered_data(all(data));
+int n = sz(data); // int n = int(data.size());
+vector&lt;int&gt; convolution_kernel(n);
+for(int i = 0; i &lt; n; i++) {
+     convolution_kernel[i] = (i+1)*(n-i);
+}
+double result = double(inner_product(all(ordered_data), convolution_kernel.begin(), 0)) / accumulate(all(convolution_kernel), 0);
+</pre>Of course, this code is just an example -- practically speaking, it would
+be faster to copy values to another vector and sort it.
+<p>
+
+<p>It's also possible to write a construction like this:</p>
+<pre class="code">
+vector&lt;int&gt; v; 
+// ... 
+int r = inner_product(all(v), v.rbegin(), 0); 
+&nbsp;
+</pre>This will evaluate V[0]*V[N-1] + V[1]+V[N-2] + ... + V[N-1]*V[0] where N
+is the number of elements in 'v'.
+<p>
+
+<p><a id="nontrivial" name="nontrivial"></a><span class=
+"bodySubtitle">Nontrivial Sorting</span><br />
+Actually, sort(...) uses the same technique as all STL:</p>
+
+<ul>
+    <li>all comparison is based on 'operator &lt;'</li>
+</ul>This means that you only need to override 'operator &lt;'. Sample code
+follows:
+<pre class="code">
+struct fraction { 
+      int n, d; // (n/d) 
+      // ... 
+      bool operator &lt; (const fraction&amp; f) const { 
+           if(false) { 
+                return (double(n)/d) &lt; (double(f.n)/f.d); 
+                // Try to avoid this, you're the TopCoder! 
+           } 
+           else { 
+                return n*f.d &lt; f.n*d; 
+           } 
+      } 
+ }; 
+ &nbsp;
+ // ... 
+ &nbsp;
+ vector&lt;fraction&gt; v; 
+ &nbsp;
+ // ... 
+ &nbsp;
+ sort(all(v)); &nbsp;
+ 
+</pre>In cases of nontrivial fields, your object should have default and copy
+constructor (and, maybe, assignment operator -- but this comment is not for
+TopCoders).
+<p>
+
+<p>Remember the prototype of 'operator &lt;' : return type bool, const
+modifier, parameter const reference.</p>
+
+<p>Another possibility is to create the comparison functor. Special comparison
+predicate may be passed to the sort(...) algorithm as a third parameter.
+Example: sort points (that are pair&lt;double,double&gt;) by polar angle.</p>
+<pre class="code">
+typedef pair&lt;double, double&gt; dd; 
+
+const double epsilon = 1e-6;
+ 
+struct sort_by_polar_angle { 
+       dd center; 
+       // Constuctor of any type 
+       // Just find and store the center 
+       template&lt;typename T&gt; sort_by_polar_angle(T b, T e) { 
+            int count = 0;
+            center = dd(0,0); 
+            while(b != e) { 
+                        center.first += b-&gt;first;
+                        center.second += b-&gt;second;
+                   b++; 
+                count++;
+            } 
+                   double k = count ? (1.0/count) : 0;
+            center.first *= k;
+                   center.second *= k;
+       } 
+ // Compare two points, return true if the first one is earlier 
+ // than the second one looking by polar angle 
+ // Remember, that when writing comparator, you should 
+ // override not ‘operator &lt;’ but ‘operator ()’ 
+       bool operator () (const dd&amp; a, const dd&amp; b) const { 
+            double p1 = atan2(a.second-center.second, a.first-center.first); 
+            double p2 = atan2(b.second-center.second, b.first-center.first); 
+            return p1 + epsilon &lt; p2; 
+       } 
+ }; 
+ &nbsp;
+ // ... 
+ &nbsp;
+ vector&lt;dd&gt; points; 
+ &nbsp;
+ // ... 
+&nbsp;
+       sort(all(points), sort_by_polar_angle(all(points)));&nbsp;
+</pre>This code example is complex enough, but it does demonstrate the
+abilities of STL. I should point out that, in this sample, all code will be
+inlined during compilation, so it's actually really fast.
+<p>
+
+<p>Also remember that 'operator &lt;' should always return false for equal
+objects. It's very important – for the reason why, see the next section.</p>
+
+<p><a id="using" name="using"></a><span class="bodySubtitle">Using your own
+objects in Maps and Sets</span><br />
+Elements in set and map are ordered. It's the general rule. So, if you want to
+enable using of your objects in set or map you should make them comparable. You
+already know the rule of comparisons in STL:</p>
+
+<p>| * all comparison is based on 'operator &lt;'</p>
+
+<p>Again, you should understand it in this way: "I only need to implement
+operator &lt; for objects to be stored in set/map."</p>
+
+<p>Imagine you are going to make the 'struct point' (or 'class point'). We want
+to intersect some line segments and make a set of intersection points (sound
+familiar?). Due to finite computer precision, some points will be the same
+while their coordinates differ a bit. That's what you should write:</p>
+<pre class="code">
+const double epsilon = 1e-7; 
+&nbsp;
+&nbsp;
+struct point { 
+       double x, y; 
+  
+       // ... 
+ &nbsp;
+ &nbsp;
+       // Declare operator &lt; taking precision into account 
+       bool operator &lt; (const point&amp; p) const { 
+            if(x &lt; p.x - epsilon) return true; 
+            if(x &gt; p.x + epsilon) return false; 
+            if(y &lt; p.y - epsilon) return true; 
+            if(y &gt; p.y + epsilon) return false; 
+            return false; 
+       } 
+ }; &nbsp;
+</pre>Now you can use set&lt;point&gt; or map&lt;point, string&gt;, for
+example, to look up whether some point is already present in the list of
+intersections. An even more advanced approach: use map&lt;point,
+vector&lt;int&gt; &gt; and list the list of indices of segments that intersect
+at this point.
+<p>
+
+<p>It's an interesting concept that for STL 'equal' does not mean 'the same',
+but we will not delve into it here.</p>
+
+<p><a id="memory" name="memory"></a><span class="bodySubtitle">Memory
+management in Vectors</span><br />
+As has been said, vector does not reallocate memory on each push_back().
+Indeed, when push_back() is invoked, vector really allocates more memory than
+is needed for one additional element. Most STL implementations of vector double
+in size when push_back() is invoked and memory is not allocated. This may not
+be good in practical purposes, because your program may eat up twice as much
+memory as you need. There are two easy ways to deal with it, and one complex
+way to solve it.</p>
+
+<p>The first approach is to use the reserve() member function of vector. This
+function orders vector to allocate additional memory. Vector will not enlarge
+on push_back() operations until the size specified by reserve() will be
+reached.</p>
+
+<p>Consider the following example. You have a vector of 1,000 elements and its
+allocated size is 1024. You are going to add 50 elements to it. If you call
+push_back() 50 times, the allocated size of vector will be 2048 after this
+operation. But if you write</p>
+<pre class="code">
+v.reserve(1050); 
+</pre>before the series of push_back(), vector will have an allocated size of
+exactly 1050 elements.
+<p>
+
+<p>If you are a rapid user of push_back(), then reserve() is your friend.</p>
+
+<p>By the way, it’s a good pattern to use v.reserve() followed by copy(…,
+back_inserter(v)) for vectors.</p>
+
+<p>Another situation: after some manipulations with vector you have decided
+that no more adding will occur to it. How do you get rid of the potential
+allocation of additional memory? The solution follows:</p>
+<pre class="code">
+vector&lt;int&gt; v; 
+// ... 
+vector&lt;int&gt;(all(v)).swap(v); &nbsp;
+</pre>This construction means the following: create a temporary vector with the
+same content as v, and then swap this temporary vector with 'v'. After the swap
+the original oversized v will be disposed. But, most likely, you won’t need
+this during SRMs.
+<p>
+
+<p>The proper and complex solution is to develop your own allocator for the
+vector, but that's definitely not a topic for a TopCoder STL tutorial.</p>
+
+<p><a id="algorithms" name="algorithms"></a><span class=
+"bodySubtitle">Implementing real algorithms with STL</span><br />
+Armed with STL, let's go on to the most interesting part of this tutorial: how
+to implement real algorithms efficiently.</p>
+
+<p><a id="dfs" name="dfs"></a><span class="bodySubtitle">Depth-first search
+(DFS)</span><br />
+I will not explain the theory of DFS here – instead, read <a href=
+"http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=graphsDataStrucs2#depth">
+this section</a> of <a class="coderTextBlue" href=
+"http://www.topcoder.com/tc?module=MemberProfile&amp;cr=268851&amp;tab=alg">gladius</a>'s
+<a href=
+"http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=graphsDataStrucs2">
+Introduction to Graphs and Data Structures</a> tutorial – but I will show you
+how STL can help.</p>
+
+<p>At first, imagine we have an undirected graph. The simplest way to store a
+graph in STL is to use the lists of vertices adjacent to each vertex. This
+leads to the vector&lt; vector&lt;int&gt; &gt; W structure, where W[i] is a
+list of vertices adjacent to i. Let’s verify our graph is connected via
+DFS:</p>
+<pre class="code">
+/*
+Reminder from Part 1:
+typedef vector&lt;int&gt; vi;
+typedef vector&lt;vi&gt; vvi;
+*/
+
+ int N; // number of vertices 
+ vvi W; // graph 
+ vi V; // V is a visited flag 
+&nbsp;
+ void dfs(int i) { 
+       if(!V[i]) { 
+            V[i] = true; 
+            for_each(all(W[i]), dfs); 
+       } 
+ } 
+ &nbsp;
+ bool check_graph_connected_dfs() { 
+       int start_vertex = 0; 
+       V = vi(N, false); 
+       dfs(start_vertex); 
+       return (find(all(V), 0) == V.end()); 
+ } 
+</pre>That’s all. STL algorithm 'for_each' calls the specified function, 'dfs',
+for each element in range. In check_graph_connected() function we first make
+the Visited array (of correct size and filled with zeroes). After DFS we have
+either visited all vertices, or not – this is easy to determine by searching
+for at least one zero in V, by means of a single call to find().
+<p>
+
+<p>Notice on for_each: the last argument of this algorithm can be almost
+anything that “can be called like a function”. It may be not only global
+function, but also adapters, standard algorithms, and even member functions. In
+the last case, you will need mem_fun or mem_fun_ref adapters, but we will not
+touch on those now.</p>
+
+<p>One note on this code: I don't recommend the use of vector&lt;bool&gt;.
+Although in this particular case it’s quite safe, you're better off not to use
+it. Use the predefined ‘vi’ (vector&lt;int&gt;). It’s quite OK to assign true
+and false to int’s in vi. Of course, it requires 8*sizeof(int)=8*4=32 times
+more memory, but it works well in most cases and is quite fast on TopCoder.</p>
+
+<p><a id="other" name="other"></a><span class="bodySubtitle">A word on other
+container types and their usage</span><br />
+Vector is so popular because it's the simplest array container. In most cases
+you only require the functionality of an array from vector – but, sometimes,
+you may need a more advanced container.</p>
+
+<p>It is not good practice to begin investigating the full functionality of
+some STL container during the heat of a Single Round Match. If you are not
+familiar with the container you are about to use, you'd be better off using
+vector or map/set. For example, stack can always be implemented via vector, and
+it’s much faster to act this way if you don’t remember the syntax of stack
+container.</p>
+
+<p>STL provides the following containers: list, stack, queue, deque,
+priority_queue. I’ve found list and deque quite useless in SRMs (except,
+probably, for very special tasks based on these containers). But queue and
+priority_queue are worth saying a few words about.</p>
+
+<p><a id="queue" name="queue"></a><span class="bodySubtitle">Queue</span><br />
+Queue is a data type that has three operations, all in O(1) amortized: add an
+element to front (to “head”) remove an element from back (from “tail”) get the
+first unfetched element (“tail”) In other words, queue is the FIFO buffer.</p>
+
+<p><a id="bfs" name="bfs"></a><span class="bodySubtitle">Breadth-first search
+(BFS)</span><br />
+Again, if you are not familiar with the BFS algorithm, please refer back to
+<a href=
+"http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=graphsDataStrucs2#breadth">
+this TopCoder tutorial</a> first. Queue is very convenient to use in BFS, as
+shown below:</p>
+<pre class="code">
+/*
+Graph is considered to be stored as adjacent vertices list.
+Also we considered graph undirected.
+&nbsp;
+vvi is vector&lt; vector&lt;int&gt; &gt;
+W[v] is the list of vertices adjacent to v
+*/
+&nbsp;
+ int N; // number of vertices
+ vvi W; // lists of adjacent vertices
+  &nbsp;
+  &nbsp;
+ bool check_graph_connected_bfs() { 
+      int start_vertex = 0; 
+      vi V(N, false); 
+      queue&lt;int&gt; Q; 
+      Q.push(start_vertex); 
+      V[start_vertex] = true; 
+      while(!Q.empty()) { 
+           int i = Q.front(); 
+           // get the tail element from queue
+           Q.pop(); 
+           tr(W[i], it) { 
+                if(!V[*it]) { 
+                     V[*it] = true; 
+                     Q.push(*it); 
+                } 
+           } 
+      } 
+      return (find(all(V), 0) == V.end()); 
+ } &nbsp;
+</pre>More precisely, queue supports front(), back(), push() (== push_back()),
+pop (== pop_front()). If you also need push_front() and pop_back(), use deque.
+Deque provides the listed operations in O(1) amortized.
+<p>
+
+<p>There is an interesting application of queue and map when implementing a
+shortest path search via BFS in a complex graph. Imagine that we have the
+graph, vertices of which are referenced by some complex object, like:</p>
+<pre class="code">
+pair&lt; pair&lt;int,int&gt;, pair&lt; string, vector&lt; pair&lt;int, int&gt; &gt; &gt; &gt; 
+
+ (this case is quite usual: complex data structure may define the position in 
+ some game, Rubik’s cube situation, etc…)
+ 
+</pre>Consider we know that the path we are looking for is quite short, and the
+total number of positions is also small. If all edges of this graph have the
+same length of 1, we could use BFS to find a way in this graph. A section of
+pseudo-code follows:
+<pre class="code">
+// Some very hard data structure 
+&nbsp;
+typedef pair&lt; pair&lt;int,int&gt;, pair&lt; string, vector&lt; pair&lt;int, int&gt; &gt; &gt; &gt; POS; 
+&nbsp;
+// ... 
+&nbsp;
+int find_shortest_path_length(POS start, POS finish) { 
+   &nbsp;
+     map&lt;POS, int&gt; D; 
+     // shortest path length to this position 
+     queue&lt;POS&gt; Q; 
+   &nbsp;
+     D[start] = 0; // start from here 
+     Q.push(start); 
+   &nbsp;
+     while(!Q.empty()) { 
+          POS current = Q.front(); 
+          // Peek the front element 
+          Q.pop(); // remove it from queue 
+   &nbsp;
+          int current_length = D[current];
+    
+          if(current == finish) { 
+               return D[current]; 
+               // shortest path is found, return its length 
+          } 
+
+          tr(all possible paths from 'current', it) { 
+               if(!D.count(*it)) { 
+               // same as if(D.find(*it) == D.end), see Part I
+                    // This location was not visited yet 
+                    D[*it] = current_length + 1; 
+               } 
+          } 
+     } 
+    &nbsp;
+     // Path was not found 
+     return -1; 
+} 
+
+// ... 
+     
+</pre>If the edges have different lengths, however, BFS will not work. We
+should use Dijkstra instead. It's possible to implement such a Dijkstra via
+priority_queue -- see below.
+<p>
+
+<p><a id="priority" name="priority"></a><span class=
+"bodySubtitle">Priority_Queue</span><br />
+Priority queue is the binary heap. It's the data structure, that can perform
+three operations:</p>
+
+<ul>
+    <li>push any element (push)</li>
+
+    <li>view top element (top)</li>
+
+    <li>pop top element (pop)</li>
+</ul>For the application of STL's priority_queue see the <a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6448&amp;rd=9987">TrainRobber</a> problem
+from SRM 307.
+<p>
+
+<p><span class="bodySubtitle"><a id="dijkstra1" name=
+"dijkstra1"></a>Dijkstra</span><br />
+In the last part of this tutorial I’ll describe how to efficiently implement
+Dijktra’s algorithm in sparse graph using STL containers. Please look through
+<a href=
+"http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=graphsDataStrucs3#dijkstra">
+this tutorial</a> for information on Dijkstra’s algoritm.</p>
+
+<p>Consider we have a weighted directed graph that is stored as vector&lt;
+vector&lt; pair&lt;int,int&gt; &gt; &gt; G, where</p>
+
+<ul>
+    <li>G.size() is the number of vertices in our graph</li>
+
+    <li>G[i].size() is the number of vertices directly reachable from vertex
+    with index i</li>
+
+    <li>G[i][j].first is the index of j-th vertex reachable from vertex i</li>
+
+    <li>G[i][j].second is the length of the edge heading from vertex i to
+    vertex G[i][j].first</li>
+</ul>We assume this, as defined in the following two code snippets:
+<pre class="code">
+typedef pair&lt;int,int&gt; ii;
+typedef vector&lt;ii&gt; vii;
+typedef vector&lt;vii&gt; vvii;
+</pre><span class="bodySubtitle"><a id="dijkstra2" name="dijkstra2"></a>Dijstra
+via priority_queue</span><br />
+Many thanks to <strong><a class="tc_coder coder" href="https://www.topcoder.com/member-profile/misof" style="color: #EE0000">misof</a></strong> for spending the time to explain
+to me why the complexity of this algorithm is good despite not removing
+deprecated entries from the queue.
+<pre class="code">
+      
+      vi D(N, 987654321); 
+      // distance from start vertex to each vertex
+
+      priority_queue&lt;ii,vector&lt;ii&gt;, greater&lt;ii&gt; &gt; Q; 
+      // priority_queue with reverse comparison operator, 
+      // so top() will return the least distance
+      // initialize the start vertex, suppose it’s zero
+      D[0] = 0;
+      Q.push(ii(0,0));
+
+      // iterate while queue is not empty
+      while(!Q.empty()) {
+
+            // fetch the nearest element
+            ii top = Q.top();
+            Q.pop();
+                        
+            // v is vertex index, d is the distance
+            int v = top.second, d = top.first;
+
+            // this check is very important
+            // we analyze each vertex only once
+            // the other occurrences of it on queue (added earlier) 
+            // will have greater distance
+            if(d &lt;= D[v]) {
+                  // iterate through all outcoming edges from v
+                  tr(G[v], it) {
+                        int v2 = it-&gt;first, cost = it-&gt;second;
+                        if(D[v2] &gt; D[v] + cost) {
+                              // update distance if possible
+                              D[v2] = D[v] + cost;
+                              // add the vertex to queue
+                              Q.push(ii(D[v2], v2));
+
+                        }
+                  }
+            }
+      }
+</pre>I will not comment on the algorithm itself in this tutorial, but you
+should notice the priority_queue object definition. Normally,
+priority_queue&lt;ii&gt; will work, but the top() member function will return
+the largest element, not the smallest. Yes, one of the easy solutions I often
+use is just to store not distance but (-distance) in the first element of a
+pair. But if you want to implement it in the “proper” way, you need to reverse
+the comparison operation of priority_queue to reverse one. Comparison function
+is the third template parameter of priority_queue while the second paramerer is
+the storage type for container. So, you should write priority_queue&lt;ii,
+vector&lt;ii&gt;, greater&lt;ii&gt; &gt;.
+<p>
+
+<p><span class="bodySubtitle"><a id="dijkstra3" name="dijkstra3"></a>Dijkstra
+via set</span><br />
+<strong><a class="tc_coder coder" href="https://www.topcoder.com/member-profile/Petr" style="color: #EE0000">Petr</a></strong> gave me this idea when I asked him about efficient
+Dijkstra implementation in C#. While implementing Dijkstra we use the
+priority_queue to add elements to the “vertices being analyzed” queue in
+O(logN) and fetch in O(log N). But there is a container besides priority_queue
+that can provide us with this functionality -- it’s ‘set’! I’ve experimented a
+lot and found that the performance of Dijkstra based on priority_queue and set
+is the same.</p>
+
+<p>So, here’s the code:</p>
+<pre class="code">
+      vi D(N, 987654321);
+
+      // start vertex
+      set&lt;ii&gt; Q;
+      D[0] = 0;
+      Q.insert(ii(0,0));
+&nbsp;
+      while(!Q.empty()) {
+
+           // again, fetch the closest to start element 
+           // from “queue” organized via set
+           ii top = *Q.begin();
+           Q.erase(Q.begin());
+           int v = top.second, d = top.first;
+&nbsp;
+           // here we do not need to check whether the distance 
+           // is perfect, because new vertices will always
+           // add up in proper way in this implementation
+
+           tr(G[v], it) {
+                int v2 = it-&gt;first, cost = it-&gt;second;
+                if(D[v2] &gt; D[v] + cost) {
+                     // this operation can not be done with priority_queue, 
+                     // because it does not support DECREASE_KEY
+                     if(D[v2] != 987654321) {
+                           Q.erase(Q.find(ii(D[v2],v2)));
+                     }
+                     D[v2] = D[v] + cost;
+                     Q.insert(ii(D[v2], v2));
+                }
+           }
+      }
+</pre>One more important thing: STL’s priority_queue does not support the
+DECREASE_KEY operation. If you will need this operation, ‘set’ may be your best
+bet.
+<p>
+
+<p>I’ve spent a lot of time to understand why the code that removes elements
+from queue (with set) works as fast as the first one.</p>
+
+<p>These two implementations have the same complexity and work in the same
+time. Also, I’ve set up practical experiments and the performance is exactly
+the same (the difference is about ~%0.1 of time).</p>
+
+<p>As for me, I prefer to implement Dijkstra via ‘set’ because with ‘set’ the
+logic is simpler to understand, and we don’t need to remember about
+‘greater&lt;int&gt;’ predicate overriding.</p>
+
+<p><a id="summary" name="summary"></a><span class="bodySubtitle">What is not
+included in STL</span><br />
+If you have made it this far in the tutorial, I hope you have seen that STL is
+a very powerful tool, especially for TopCoder SRMs. But before you embrace STL
+wholeheartedly, keep in mind what is NOT included in it.</p>
+
+<p>First, STL does not have BigInteger-s. If a task in an SRM calls for huge
+calculations, especially multiplication and division, you have three
+options:</p>
+
+<ul>
+    <li>use a pre-written template</li>
+
+    <li>use Java, if you know it well</li>
+
+    <li>say “Well, it was definitely not my SRM!”</li>
+</ul>I would recommend option number one.
+<p>
+
+<p>Nearly the same issue arises with the geometry library. STL does not have
+geometry support, so you have those same three options again.</p>
+
+<p>The last thing – and sometimes a very annoying thing – is that STL does not
+have a built-in string splitting function. This is especially annoying, given
+that this function is included in the default template for C++ in the
+ExampleBuilder plugin! But actually I’ve found that the use of istringstream(s)
+in trivial cases and sscanf(s.c_str(), …) in complex cases is sufficient.</p>
+
+<p>Those caveats aside, though, I hope you have found this tutorial useful, and
+I hope you find the STL a useful addition to your use of C++. Best of luck to
+you in the Arena!</p>
+
+<p>Note from the author: In both parts of this tutorial I recommend the use of
+some templates to minimize the time required to implement something. I must say
+that this suggestion should always be up to the coder. Aside from whether
+templates are a good or bad tactic for SRMs, in everyday life they can become
+annoying for other people who are trying to understand your code. While I did
+rely on them for some time, ultimately I reached the decision to stop. I
+encourage you to weigh the pros and cons of templates and to consider this
+decision for yourself.</p>
+
+<style>
+
+.formFrame { background: #f5f5f5; margin: auto; }.formFrame td { border: 1px solid #ccc; padding: 5px; }.sideNote {background: #f5f5f5; margin: 15px; padding: 15px; border: 1px solid #eee;}pre {background: #f5f5f5; margin: 15px; padding: 15px; border: 1px solid #eee; overflow: scroll;}p{padding-bottom:0 !important;}
+
+</style>					
+
+						<!-- /.pageContent -->
+
+					</div>
+					<!-- /.mainStream -->
+
+					<aside class="sideStream  grid-1-3">
+								<div class="textwidget"><div style="display: inline-block; width: 320px; height: 44px; overflow: hidden; background-color: #f1f1f1; padding:5px;">
+           <p style="padding-top: 12px; padding-left: 7px; font-size: 22px">
+    More Resources</p>
+       </div>
+
+
+	  <br />
+<p style="padding-top: 12px; padding-left: 10px; line-height: 150%"><a href="http://www.topcoder.com/community/data-science/data-science-tutorials/">Member Tutorials </a><br />
+Read more than 40 data science tutorials written by topcoder members. </p>
+<p style="padding-top: 12px; padding-left: 10px; line-height: 150%"><a href="http://www.topcoder.com/community/data-science/data-science-editorials/">Problem Set Analysis </a><br />
+Read editorials explaining the problem and solution for each Single Round Match (SRM). </p>
+<p style="padding-top: 12px; padding-left: 10px; line-height: 150%"><a href="http://www.topcoder.com/community/data-science/getting-started-in-data-science/">
+Data Science Guide</a><br />
+New to topcoder's data science track? Read this guide for an overview on how to get started in the arena and how competitions work.</p>
+<p style="padding-top: 12px; padding-left: 10px; line-height: 150%"><A href="http://help.topcoder.com">Help Center </a><br />
+Need specifics about the process or the rules? Everything you need to know about competing at topcoder can be found in the Help Center.</p>
+<p style="padding-top: 12px; padding-left: 10px; line-height: 150%"><a href="http://apps.topcoder.com/forums/">Member Forums</a> <br />
+Join your peers in our member forums and ask questions from the real experts - topcoder members!</p>
+</div>
+							</aside>
+
+					<!-- /.sideStream -->
+					<div class="clear"></div>
+				</div>
+				<!-- /.rightSplit -->
+			</div>
+		</article>
+		<!-- /#mainContent -->
+<footer class="bottom-footer">
+  <!-- Footer links -->
+  <nav class="menu-item">
+    <div class="menu-item-header show-small">OTHERS</div>
+    <ul class="submenu">
+      <li class="submenu-item"><a ng-click="$event.stopPropagation();" href="/sitemap" class="menu-link">SITEMAP</a></li>
+      <li class="submenu-item"><a ng-click="$event.stopPropagation();" href="/about" class="menu-link">ABOUT US</a></li>
+      <li class="submenu-item"><a ng-click="$event.stopPropagation();" href="https://help.topcoder.com/hc/en-us/articles/219069687-Contact-Support" class="menu-link">CONTACT US</a></li>
+      <li class="submenu-item"><a ng-click="$event.stopPropagation();" href="http://help.topcoder.com" target="_blank" class="menu-link">HELP CENTER</a></li>
+      <li class="submenu-item"><a ng-click="$event.stopPropagation();" href="http://topcoder.com/community/how-it-works/privacy-policy/" class="menu-link">PRIVACY POLICY</a></li>
+      <li class="submenu-item"><a ng-click="$event.stopPropagation();" href="http://topcoder.com/community/how-it-works/terms/" class="menu-link">TERMS</a></li>
+    </ul>
+    <!-- Social links -->
+  </nav>
+  <div class="social-links">
+    <p>Topcoder is also on</p><a href="https://www.facebook.com/topcoder" target="fbwindow" class="fb-link"></a><a href="http://www.twitter.com/topcoder" target="twwindow" class="twitter-link"></a><a href="https://www.linkedin.com/company/topcoder" target="liwindow" class="linkedin-link"></a><a href="https://plus.google.com/u/0/b/104268008777050019973/104268008777050019973/posts" target="gpwindow" class="google-link"></a>
+  </div>
+  <p class="copyright-notice">© 2016 Topcoder. All Rights Reserved</p>
+</footer>
+</div>
+<!-- /.content -->
+</div>
+<!-- /#wrapper -->
+
+
+<div id="bgModal"></div><!-- background modal -->
+<div id="bgOverlapModal"></div><!-- background modal -->
+<div id="bgLoadingModal"><span></span></div><!-- background loading -->
+<div id="thanks" class="modal">
+  <a href="javascript:;" class="closeBtn closeModal"></a>
+
+  <div class="content">
+    <h2>Thanks for joining!</h2>
+
+    <p>We have sent you an email with activation instructions.<br/>If you do not receive that email within 1 hour,
+      please email <a href="mailto:support@topcoder.com">support@topcoder.com</a>.</p>
+
+    <div>
+      <a href="javascript:;" class="btn closeModal redirectOnConfirm">Close</a>
+    </div>
+  </div>
+</div><!-- END #thanks -->
+<div id="registerSuccess" class="modal">
+  <a href="javascript:;" class="btnClose closeModal"></a>
+  <div class="content">
+    <h2>Registered!</h2>
+    <p class="success">Thank you for registering. You may now download the challenge files and participate in the challenge forums.</p>
+    <p class="submitBtn">
+      <a class="btn closeModalReg" href="javascript:;">OK</a>
+    </p>
+  </div>
+</div><!-- END #registerSuccess -->
+<div id="registerFailed" class="modal">
+  <a href="javascript:;" class="btnClose closeModal"></a>
+  <div class="content">
+    <h2>Info</h2>
+    <p class="failedMessage"></p>
+    <p class="submitBtn">
+      <a class="btn closeModal" href="javascript:;">OK</a>
+    </p>
+  </div>
+</div><!-- END #registerFailed -->
+
+<div id="showSubmission" class="modal">
+    <a href="javascript:;" class="btnClose closePopupModal"></a>
+    <div class="content">
+       <img alt="" style="width:910px; height:850px">
+    </div>
+</div><!-- END #show submission -->
+
+<div id="filterSavedSuccess" class="modal">
+  <a href="javascript:;" class="btnClose closeModal"></a>
+  <div class="content">
+    <h2>Success</h2>
+    <p class="success">Your filters have been saved and stored in the "My Filters" dropdown list.</p>
+    <p class="submitBtn">
+      <a class="btn closeModal" href="javascript:;">OK</a>
+    </p>
+  </div>
+</div><!-- END #filterSavedSuccess -->
+
+<div id="filterSavedFailed" class="modal">
+  <a href="javascript:;" class="btnClose closeModal"></a>
+  <div class="content">
+    <h2>Info</h2>
+    <p class="failedMessage"></p>
+    <p class="submitBtn">
+      <a class="btn closeModal" href="javascript:;">OK</a>
+    </p>
+  </div>
+</div><!-- END #filterSavedFailed -->
+
+<div id="designSubmissionCommentExample" class="modal">
+  <a href="javascript:;" class="btnClose closeModal"></a>
+  <div class="content">
+    <h2>Comment Examples</h2>
+
+    <strong>Example 1:</strong><br>
+    The logo represents movement and "taking action" rather than being stagnant.
+    The colors I chose signify power and give the brand a strong feel.<br><br>
+
+    <strong>Example 2:</strong><br>
+    This is a revised version of my previous submission. Changes include a new
+    header graphic, new font choices for the pop-up box and new icons for the
+    widget on the fourth page.<br><br>
+
+    <strong>Example 3:</strong><br>
+    This is my Round 2 submission. I have implemented all of the feedback you
+    gave me after Round 1 and I hope you like the changes.<br><br>
+  </div>
+</div><!-- END #show submission -->
+
+<div id="typeTooltip" class="tooltip hide">
+  <div class="inner">
+    <header></header>
+    <div class="data">
+      <p class="contestTy"></p>
+    </div>
+    <div class="arrow"></div>
+  </div>
+</div><!-- /.tooltip -->
+<div id="winnerTooltip" class="tooltip hide">
+  <div class="inner">
+    <header></header>
+    <div class="data">
+      <div class="winnerInfo"></div>
+    </div>
+    <div class="arrow alt"></div>
+  </div>
+</div><!-- /.tooltip -->
+<div id="badgeTooltip" class="tooltip hide">
+  <div class="inner">
+    <header></header>
+    <div class="data">
+      <p class="earnedOn"></p>
+    </div>
+    <div class="data">
+      <p class="currentlyEarned"><span></span></p>
+    </div>
+    <div class="arrow"></div>
+  </div>
+</div><!-- /.tooltip -->
+<link rel='stylesheet' id='ng-grid-css'  href='//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.10/ng-grid.css?ver=3.9.1' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.topcoder.com/wp-content/plugins/TcApi-hookup/includes/js/Selectyze.jquery.js'></script>
+<script type='text/javascript' src='https://www.topcoder.com/wp-content/plugins/TcApi-hookup/includes/js/tcapi.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'></script>
+<script type='text/javascript' src='//cdn.auth0.com/w2/auth0-1.6.4.js'></script>
+<script type='text/javascript' src='https://www.topcoder.com/mf/dist/js/default.min.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular.min.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular-animate.min.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular-route.min.js'></script>
+<script type='text/javascript' src='https://www.topcoder.com/wp-includes/js/underscore.min.js?ver=1.6.0'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/restangular/1.4.0/restangular.min.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.10/ng-grid.min.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.10/ng-grid-flexible-height.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular-cookies.min.js'></script>
+<script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js'></script>
+<script>
+  window.prerenderReady = false;
+  function getParameterByName(name, source) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(source || location.search);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+  function getHashParameterByName(name, source) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\#&]" + name + "=([^&#]*)"),
+    results = regex.exec(source || location.hash);
+    return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+</script>
+
+
+<!-- START Marketo Code -->
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script>Munchkin.init('921-UOU-112', {"wsInfo":"jFRS"});</script>
+<!-- END Marketo Code -->
+
+<!-- START Google Retargeting Marketing Code -->
+<script type="text/javascript">
+adroll_adv_id = "LOUA2FVRTJDYZC2BMX72Z7";
+adroll_pix_id = "4XU6H3BYL5EQBFHZM4DIUU";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+<!-- END Google Retargeting Marketing Code -->
+
+<!-- Start of topcoder Zendesk Widget script -->
+<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","topcoder.zendesk.com");
+/*]]>*/</script>
+<!-- End of topcoder Zendesk Widget script -->
+
+<script>
+(function() {
+  var headerApp = angular.module('tc.header', [])
+  headerApp.config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from subdomains.  Notice the difference between * and **.
+      'http://*.topcoder.com/**',
+      'https://*.topcoder.com/**',
+      'http://*.topcoder-qa.com/**',
+      'https://*.topcoder-qa.com/**',
+      'http://*.topcoder-dev.com/**',
+      'https://*.topcoder-dev.com/**'
+    ]);
+  });
+  headerApp.directive('ngHeaderBootstrap', function(){
+    return {
+      restrict: 'C',
+      templateUrl: '/mf/js/app/header/partials/header-nav.html',
+      controller: function($scope, $timeout){
+        $scope.vm = vm = {};
+        $scope.main = {};
+        $scope.main.menuVisible = false;
+        vm.isAuth = false;
+
+        if (app.isLoggedIn()) {
+          vm.isAuth = true;
+          app.getHandle(function(handle) {
+            $.get(tcconfig.apiURL + '/users/' + handle, function(data) {
+              var photoLink = data['photoLink'];
+              if (photoLink) {
+                if (photoLink.indexOf('//') == -1) {
+                  photoLink = tcconfig.communityURL + data['photoLink']
+                }
+              } else {
+                photoLink = tcconfig.communityURL + '/i/m/nophoto_login.gif';
+              }
+              
+              var color = '';
+              var ratings = data['ratingSummary'];
+              if (ratings) {
+                var maxRating = 0;
+                for (var i = 0; i < ratings.length; i++) {
+                  if (maxRating < ratings[i]['rating']) {
+                    maxRating = ratings[i]['rating'];
+                    color = ratings[i]['colorStyle'].split(": ")[1];
+                  }
+                }
+              } else if (data['isPM'] == true) {
+                color = '#FF9900';
+              }
+              
+              $timeout(function() {
+                vm.handleStyle = { color: color };
+                vm.photoURL = photoLink;
+              });
+            });
+
+            $timeout(function() {
+              vm.userHandle = handle;
+              vm.userMenu = [
+                { 'href': '/my-dashboard', 'text': 'DASHBOARD', 'icon': '/mf/i/nav/dashboard.svg' },
+                { 'href': '/members/' + handle, 'text': 'MY PROFILE', 'icon': '/mf/i/nav/profile.svg' },
+                { 'href': 'https:' + tcconfig.communityURL + '/PactsMemberServlet?module=PaymentHistory&full_list=false', 'text': 'PAYMENTS', 'icon': '/mf/i/nav/wallet.svg' },
+                { 'href': '/settings/profile', 'text': 'SETTINGS', 'icon': '/mf/i/nav/settings.svg' },
+              ];
+            });
+          });
+        }
+
+        vm.menuHeaders = [ 'compete', 'learn', 'community' ];
+        vm.menuLinks =
+        {
+          'compete': [
+              { 'href':  "/challenges/design/active/?pageIndex=1", 'text': 'DESIGN CHALLENGES', 'icon': '/mf/i/nav/track-design.svg' },
+              { 'href':  "/challenges/develop/active/?pageIndex=1", 'text': 'DEVELOPMENT CHALLENGES', 'icon': '/mf/i/nav/track-develop.svg' },
+              { 'href':  "/challenges/data/active/?pageIndex=1", 'text': 'DATA SCIENCE CHALLENGES', 'icon': '/mf/i/nav/track-data.svg' },
+              { 'href':  'https:' + tcconfig.arenaURL, 'text': 'COMPETITIVE PROGRAMMING', 'icon': '/mf/i/nav/track-cp.svg', 'target': '_blank' },
+          ],
+          'learn': [
+              { 'href': '/getting-started/', 'text': 'GETTING STARTED', 'icon': '/mf/i/nav/rocket.svg' },
+              { 'href': '/community/design/', 'text': 'DESIGN', 'icon': '/mf/i/nav/book-design.svg' },
+              { 'href': '/community/development/', 'text': 'DEVELOPMENT', 'icon': '/mf/i/nav/book-develop.svg' },
+              { 'href': '/community/data-science/', 'text': 'DATA SCIENCE', 'icon': '/mf/i/nav/book-data.svg' },
+              { 'href': '/community/competitive%20programming/', 'text': 'COMPETITIVE PROGRAMMING', 'icon': '/mf/i/nav/book-cp.svg' },
+          ],
+          'community': [
+              { 'href': '/community/members/', 'text': 'OVERVIEW', 'icon': '/mf/i/nav/members.svg' },
+              { 'href': '/tco', 'text': 'TCO', 'icon': '/mf/i/nav/tco-generic.svg' },
+              { 'href': '/community/member-programs/', 'text': 'PROGRAMS', 'icon': '/mf/i/nav/programs.svg' },
+              { 'href': 'https://' + tcconfig.forumsAppURL, 'text': 'FORUMS', 'icon': '/mf/i/nav/forums.svg' },
+              { 'href': '/community/statistics/', 'text': 'STATISTICS', 'icon': '/mf/i/nav/statistics.svg' },
+              { 'href': '/community/events/', 'text': 'EVENTS', 'icon': '/mf/i/nav/events.svg' },
+              { 'href': '/blog/', 'text': 'BLOG', 'icon': '/mf/i/nav/blog.svg' }
+          ]
+        };
+
+        vm.checkSubmit = function(ev) {
+          if (ev.keyCode === 13)
+            window.location.replace(tcconfig.mainURL + '/search/members/?q=' + window.encodeURIComponent(vm.searchTerm));
+        }
+
+        vm.isActive = function(href) {
+          if (window.location.pathname == href)
+            return true;
+          return false;
+        }
+
+        vm.login = function() {
+          window.location.href = "/login?next=" + encodeURIComponent(window.location.href);
+        }
+
+        vm.logout = function() {
+          document.cookie = 'tcsso=; path=/; domain=.' + tcconfig.domain + '; expires=' + new Date(0).toUTCString();
+          document.cookie = 'tcjwt=; path=/; domain=.' + tcconfig.domain + '; expires=' + new Date(0).toUTCString();
+          main.menuVisible = vm.isAuth = false;
+          window.location.href = '/logout';
+        }
+      }
+    };
+  });
+
+  angular.bootstrap($('.ng-header-bootstrap'), ['tc.header']);
+})();
+</script>
+
+</div>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"496af5ee90","applicationID":"5697815","transactionName":"ZlcBbBQAChBSARIKXV8dIlsSCAsNHBYDDkJdUxddSw4SBkEUDwZFHEUKXAEEEApJBwI=","queueTime":0,"applicationTime":129,"atts":"ShACGlwaGR4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+</html>

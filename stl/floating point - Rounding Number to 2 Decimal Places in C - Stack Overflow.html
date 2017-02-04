@@ -1,0 +1,3607 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/QAPage">
+
+<head>
+
+<title>floating point - Rounding Number to 2 Decimal Places in C - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a)">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com"/>
+    <meta property="og:type" content="website" />
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded" />
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Rounding Number to 2 Decimal Places in C" />
+    <meta name="twitter:description" property="og:description" itemprop="description" content="How can I round a float (such as 37.777779) to two decimal places (37.78) in C?" />
+    <meta property="og:url" content="http://stackoverflow.com/questions/1343890/rounding-number-to-2-decimal-places-in-c"/>
+    <link rel="canonical" href="http://stackoverflow.com/questions/1343890/rounding-number-to-2-decimal-places-in-c" />
+
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.sstatic.net/Js/stub.en.js?v=890cc3074d03"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/all.css?v=b0ea75532e6d">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Rounding Number to 2 Decimal Places in C&#39;" href="/feeds/question/1343890">
+            <meta name="twitter:app:country" content="US" />
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:iphone" content="871299723" />
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/1343890/rounding-number-to-2-decimal-places-in-c" />
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS" />
+            <meta name="twitter:app:id:ipad" content="871299723" />
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/1343890/rounding-number-to-2-decimal-places-in-c" />
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/1343890/rounding-number-to-2-decimal-places-in-c">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({votesCast:[],autoShowCommentHelp:true,showAnswerHelp:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:1343890});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '1343890');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+            <script>
+                StackExchange.ready(function () {
+                    try {
+                        if (!document.createElementNS('http://www.w3.org/2000/svg', "svg").createSVGTransform)
+                            return;
+                    } catch (ex) {
+                        return;
+                    }
+                    var d = 100;
+                    $.ajax({url:"//cdn-prom.sstatic.net/WinterBash/js/qa-wb.js?v=8",cache:true,dataType:"script"}).done(function tryInit() {
+                        if (window.WinterBash) {
+                            WinterBash.core.init('winterbash2016.stackexchange.com', '//cdn-prom.sstatic.net/WinterBash/', '8');
+                        } else {
+                            if (d <= 800)
+                                setTimeout(tryInit, d);
+                            d *= 2;
+                        }
+                    });
+                });
+            </script>
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1482996288,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"cfbcd4a9f2504dc5bf9e2eb74d7a3f1d","rep":1,"isRegistered":true,"userType":3,"userId":6928432,"accountId":5668539,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://i.stack.imgur.com/66lzk.jpg?s=32&amp;g=1\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"http://stackoverflow.com/users/6928432/serenesunak","canSeeDeletedPosts":false,"ab":{"question_page_hero":{"v":"delay_hero_3","g":2},"devstory_onboarding_exp":{"v":"g","g":1},"mobile_signup_link":{"v":"simplified_signup_form:rdn","g":2}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableNewHeaderDesign":true,"enableImgurHttps":true},"comments":{},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"analytics":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"50b5ced7e001","js/moderator.en.js":"9f3ffcf6092c","js/full-anon.en.js":"fb4377e5719d","js/full.en.js":"f0fdccb9e5de","js/wmd.en.js":"b1bf3b6b81b1","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"20710353f000","js/help.en.js":"dbd4f489eff2","js/tageditor.en.js":"679047593031","js/tageditornew.en.js":"15fc677e2435","js/inline-tag-editing.en.js":"ada30ae89544","js/revisions.en.js":"47de10a8358f","js/review.en.js":"4860570a1e5b","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"317470dd4fa5","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"f4b2456abbcd","js/keyboard-shortcuts.en.js":"2d6fc9a97e37","js/external-editor.en.js":"235e80f649d7","js/external-editor.en.js":"235e80f649d7","js/snippet-javascript.en.js":"25d6d4214eed","js/snippet-javascript-codemirror.en.js":"68c50bd0c27a"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+</head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        <iframe id="adzerk-user-match" width="0" height="0" frameborder="0" scrolling="no" onload="window.AUMIframeDone=true"
+                src="https://ssum-sec.casalemedia.com/usermatch?s=183712&amp;cb=https%3A%2F%2Fengine.adzerk.net%2Fudb%2F22%2Fsync%2Fi.gif%3FpartnerId%3D1%26userId%3D"
+                style="display: none;" marginheight="0" marginwidth="0"></iframe>
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="//stackoverflow.com">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+                    <a href="http://chat.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:6 })"
+>chat</a>
+                    <a href="/users/logout" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:8 })"
+>log out</a>
+    </div>
+
+
+
+
+    <a href="//stackoverflow.com"
+       class="current-site-link site-link js-gps-track"
+       data-id="1"
+       data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+
+
+
+    <a href="http://meta.stackoverflow.com"
+       class="site-link js-gps-track"
+       data-id="552"
+       data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+                    <a href="//stackexchange.com/users/5668539/?tab=accounts">your communities</a>
+            </h3>
+
+                <a href="#" id="edit-pinned-sites">edit</a>
+                <a href="#" id="cancel-pinned-sites" style="display: none;">cancel</a>
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <ul class="my-sites">
+                        <li>
+                            
+
+
+
+    <a href="//askubuntu.com"
+       class="site-link js-gps-track"
+       data-id="89"
+       data-gps-track="
+            site.switch({ target_site:89, item_type:3 }),
+        site_switcher.click({ item_type:1 })">
+        <div class="site-icon favicon favicon-askubuntu" title="Ask Ubuntu"></div>
+        Ask Ubuntu
+            <span class="rep-score">1</span>
+    </a>
+
+                        </li>
+                        <li>
+                            
+
+
+
+    <a href="//codereview.stackexchange.com"
+       class="site-link js-gps-track"
+       data-id="196"
+       data-gps-track="
+            site.switch({ target_site:196, item_type:3 }),
+        site_switcher.click({ item_type:1 })">
+        <div class="site-icon favicon favicon-codereview" title="Code Review"></div>
+        Code Review
+            <span class="rep-score">1</span>
+    </a>
+
+                        </li>
+                        <li>
+                            
+
+
+
+    <a href="//stackoverflow.com"
+       class="site-link js-gps-track"
+       data-id="1"
+       data-gps-track="
+            site.switch({ target_site:1, item_type:3 }),
+        site_switcher.click({ item_type:1 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+            <span class="rep-score">1</span>
+    </a>
+
+                        </li>
+                </ul>
+                    <div class="pinned-site-editor-container" style="display: none;">
+                        <input id="js-site-search-txt"
+                                type="text"
+                                class="site-filter-input"
+                                value=""
+                                placeholder="Add a Stack Exchange community"/>
+                        <input type="submit" id="pin-site-btn" value="Add" disabled="disabled"/>
+                        <ul class="js-found-sites found-sites"></ul>
+                        <ul class="pinned-site-list sortable" data-custom-list="False">
+                        </ul>
+                        <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled"/>
+                        <a href="#" id="reset-pinned-sites">reset to default list</a>
+                    </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="//stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="http://stackoverflow.blog" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+        </div>
+
+        <div class="network-items">
+                <a href="//stackexchange.com"
+                   class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track"
+                   data-gps-track="site_switcher.show"
+                   title="A list of all 162 Stack Exchange sites">
+                    <span class="hidden-text">Stack Exchange</span>
+                </a>
+
+    <a href="#"
+       class="topbar-icon icon-inbox yes-hover js-inbox-button"
+       title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="#"
+       class="topbar-icon icon-achievements yes-hover js-achievements-button "
+       data-unread-class=""
+       title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <a href="/users/6928432/serenesunak" 
+                   class="profile-me js-gps-track" 
+                   data-gps-track="profile_summary.click()">
+                    
+                    <div class="gravatar-wrapper-24" title="serenesunak"><img src="https://i.stack.imgur.com/66lzk.jpg?s=48&amp;g=1" alt="" width="24" height="24" class="avatar-me js-avatar-me"></div>
+
+                    <div class="links-container topbar-flair">
+
+                        <span class="reputation" title="your reputation: 1">
+                            1
+                        </span>
+                    </div>
+                </a>
+                <div class="links-container">
+                    <span class="topbar-menu-links">
+
+
+
+
+        <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+            help
+            <span class="triangle"></span>
+        </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="//meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                                            </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                        <input name="q" type="text" placeholder="Search Q&amp;A" value="" tabindex="1" autocomplete="off" maxlength="240" />
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="/" >
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                            <li class="youarehere">
+        <a id="nav-questions"
+           href="/questions"
+           class="js-gps-track" 
+           data-gps-track="top_nav.click({is_current:true, location:3, destination:1})">
+        Questions
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-jobs"
+           href="/jobs?med=site-ui&amp;ref=jobs-tab"
+           class="js-gps-track" 
+           data-gps-track="top_nav.click({is_current:false, location:3, destination:6})">
+        Jobs
+        </a>
+    </li>
+                            <li>
+        <a id="nav-docs"
+           href="/documentation"
+           class="js-gps-track" 
+           data-gps-track="top_nav.click({is_current:false, location:3, destination:7})">
+        Documentation
+        </a>
+    </li>
+                            <li>
+        <a id="nav-tags"
+           href="/tags"
+           class="js-gps-track" 
+           data-gps-track="top_nav.click({is_current:false, location:3, destination:2})">
+        Tags
+        </a>
+    </li>
+
+                            <li>
+        <a id="nav-users"
+           href="/users"
+           class="js-gps-track" 
+           data-gps-track="top_nav.click({is_current:false, location:3, destination:3})">
+        Users
+        </a>
+    </li>
+
+                            <li>
+        <a id="nav-badges"
+           href="/help/badges"
+           class="js-gps-track" 
+           data-gps-track="top_nav.click({is_current:false, location:3, destination:4})">
+        Badges
+        </a>
+    </li>
+
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion"  href="/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+			<div id="question-header">
+                <h1 itemprop="name"><a href="/questions/1343890/rounding-number-to-2-decimal-places-in-c" class="question-hyperlink">Rounding Number to 2 Decimal Places in C</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="1343890"  id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk782331679",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk782331679"></div>    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1343890">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">130</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+
+        <a class="star-off" href="#">favorite</a>
+        <div class="favoritecount"><b>45</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>How can I round a float (such as 37.777779) to two decimal places (37.78) in C?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="/questions/tagged/c" class="post-tag" title="show questions tagged &#39;c&#39;" rel="tag">c</a> <a href="/questions/tagged/floating-point" class="post-tag" title="show questions tagged &#39;floating-point&#39;" rel="tag">floating-point</a> <a href="/questions/tagged/decimal" class="post-tag" title="show questions tagged &#39;decimal&#39;" rel="tag">decimal</a> 
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/q/1343890/6928432" title="short permalink to this question" class="short-link" id="link-post-1343890">share</a><span class="lsep">|</span><a href="/posts/1343890/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/1343890/revisions" title="show all edits to this post">edited <span title="2012-05-09 14:07:28Z" class="relativetime">May 9 '12 at 14:07</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/44390/mskfisher"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/9d94e885a0f4ea815305eaf29313cf84?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/44390/mskfisher">mskfisher</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,961</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="22 silver badges"><span class="badge2"></span><span class="badgecount">22</span></span><span title="37 bronze badges"><span class="badge3"></span><span class="badgecount">37</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2009-08-27 21:41:57Z" class="relativetime">Aug 27 '09 at 21:41</span>
+    </div>
+    <div class="user-gravatar32">
+        <span class="anonymous-gravatar"></span>
+    </div>
+    <div class="user-details">
+        Tyler
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1343890" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-1179196" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What kind of data are you expecting? Another float or printed output?</span>
+                    &ndash;&nbsp;<a href="/users/153535/fbrereto"
+                       title="26,138 reputation"
+                       class="comment-user">fbrereto</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-27 21:49:14Z" class="relativetime-clean">Aug 27 '09 at 21:49</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1179199" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="warm">11</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You cannot properly round the number itself, because <code>float</code> (and <code>double</code>) aren&#39;t decimal floating-point - they are binary floating-point - so rounding to decimal positions is meaningless. You can round the output, however.</span>
+                    &ndash;&nbsp;<a href="/users/111335/pavel-minaev"
+                       title="75,215 reputation"
+                       class="comment-user">Pavel Minaev</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-27 21:49:22Z" class="relativetime-clean">Aug 27 '09 at 21:49</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1180234" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="supernova">39</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It&#39;s not meaningless; it&#39;s inexact.  There&#39;s quite a difference.</span>
+                    &ndash;&nbsp;<a href="/users/102916/brooks-moses"
+                       title="7,030 reputation"
+                       class="comment-user">Brooks Moses</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 03:08:32Z" class="relativetime-clean">Aug 28 '09 at 3:08</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-39067541" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What kind of rounding you&#39;re expecting? Half-up or Rounding to nearest even?</span>
+                    &ndash;&nbsp;<a href="/users/1889682/truthseeker-rangwan"
+                       title="136 reputation"
+                       class="comment-user">Truthseeker Rangwan</a>
+                <span class="comment-date" dir="ltr"><span title="2014-08-03 13:21:31Z" class="relativetime-clean">Aug 3 '14 at 13:21</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1343890" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>        </table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								14 Answers
+                                <span style="display:none;" itemprop="answerCount">14</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="/questions/1343890/rounding-number-to-2-decimal-places-in-c?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="/questions/1343890/rounding-number-to-2-decimal-places-in-c?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="/questions/1343890/rounding-number-to-2-decimal-places-in-c?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="1344261"></a>
+<div id="answer-1344261" class="answer" data-answerid="1344261"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1344261">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">273</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you just want to round the number for output purposes, then the <code>"%.2f"</code> format string is indeed the correct answer.  However, if you actually want to round the floating point value for further computation, something like the following works:</p>
+
+<pre><code>#include &lt;math.h&gt;
+
+float val = 37.777779;
+
+float rounded_down = floorf(val * 100) / 100;   /* Result: 37.77 */
+float nearest = roundf(val * 100) / 100;  /* Result: 37.78 */
+float rounded_up = ceilf(val * 100) / 100;      /* Result: 37.78 */
+</code></pre>
+
+<p>Notice that there are three different rounding rules you might want to choose: round down (ie, truncate after two decimal places), rounded to nearest, and round up.  Usually, you want round to nearest.</p>
+
+<p>As several others have pointed out, due to the quirks of floating point representation, these rounded values may not be exactly the "obvious" decimal values, but they will be very very close.</p>
+
+<p>For much (much!) more information on rounding, and especially on tie-breaking rules for rounding to nearest, see <a href="http://en.wikipedia.org/wiki/Rounding" rel="nofollow noreferrer">the Wikipedia article on Rounding</a>.</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/1344261/6928432" title="short permalink to this answer" class="short-link" id="link-post-1344261">share</a><span class="lsep">|</span><a href="/posts/1344261/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/1344261/revisions" title="show all edits to this post">edited <span title="2014-08-03 20:44:39Z" class="relativetime">Aug 3 '14 at 20:44</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2009-08-27 23:21:32Z" class="relativetime">Aug 27 '09 at 23:21</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/52210/dale-hagglund"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/b039a6683550d74705f9d00dcd24b6b7?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/52210/dale-hagglund">Dale Hagglund</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 10,736" dir="ltr">10.7k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="19 silver badges"><span class="badge2"></span><span class="badgecount">19</span></span><span title="35 bronze badges"><span class="badge3"></span><span class="badgecount">35</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1344261" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="6"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-36350582" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Can it be modified to support rounding to arbitrary precision?</span>
+                    &ndash;&nbsp;<a href="/users/472308/slater"
+                       title="351 reputation"
+                       class="comment-user">slater</a>
+                <span class="comment-date" dir="ltr"><span title="2014-05-14 20:12:17Z" class="relativetime-clean">May 14 '14 at 20:12</span></span>
+                        <span class="edited-yes" title="this comment was edited 2 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-36364131" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@slater When you say &#39;arbitrary precision&#39;, are you asking about rounding to,  eg,  three instead of two decimal places, or using libraries that implement unbounded precision decimal values?  If the former, make what I hope are obvious adjustments to the constant 100; otherwise,   do the exact same calculations shown above, just with whatever multi precision library you&#39;re using.</span>
+                    &ndash;&nbsp;<a href="/users/52210/dale-hagglund"
+                       title="10,736 reputation"
+                       class="comment-user">Dale Hagglund</a>
+                <span class="comment-date" dir="ltr"><span title="2014-05-15 07:09:32Z" class="relativetime-clean">May 15 '14 at 7:09</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-36384964" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@DaleHagglung The former, thank you. Is the adjustment to replace 100 with pow(10, (int)desiredPrecision)?</span>
+                    &ndash;&nbsp;<a href="/users/472308/slater"
+                       title="351 reputation"
+                       class="comment-user">slater</a>
+                <span class="comment-date" dir="ltr"><span title="2014-05-15 15:09:48Z" class="relativetime-clean">May 15 '14 at 15:09</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-36404260" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Yep.  To round after k decimal places, use a scale factor of 10^k.  This should be really easy to see if you write out some decimal values by hand and play around with multiples of 10.  Suppose you&#39;re working with the value 1.23456789, and want to round it to 3 decimal places.  The operation available to you is <i>round to integer</i>.  So, how do you move the first three decimal places so that they&#39;re left of the decimal point?  I hope it&#39;s clear that you multiply by 10^3.  Now you can round that value to an integer.  Next, you put the three low order digits back by dividing by 10^3.</span>
+                    &ndash;&nbsp;<a href="/users/52210/dale-hagglund"
+                       title="10,736 reputation"
+                       class="comment-user">Dale Hagglund</a>
+                <span class="comment-date" dir="ltr"><span title="2014-05-16 03:19:49Z" class="relativetime-clean">May 16 '14 at 3:19</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-37604389" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Can I make this work with <code>doubles</code> too somehow? Doesn&#39;t seem to do the job I want :( (using <code>floor</code> and <code>ceil</code>).</span>
+                    &ndash;&nbsp;<a href="/users/2296407/ms-nobody"
+                       title="834 reputation"
+                       class="comment-user">Ms. Nobody</a>
+                <span class="comment-date" dir="ltr"><span title="2014-06-20 12:40:28Z" class="relativetime-clean">Jun 20 '14 at 12:40</span></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1344261" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link  dno"
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   ></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href=# onclick="">show <b>6</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1797181325",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1797181325"></div>
+  
+<a name="1343909"></a>
+<div id="answer-1343909" class="answer" data-answerid="1343909"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1343909">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">47</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre><code>printf("%.2f", 37.777779);
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/1343909/6928432" title="short permalink to this answer" class="short-link" id="link-post-1343909">share</a><span class="lsep">|</span><a href="/posts/1343909/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2009-08-27 21:45:01Z" class="relativetime">Aug 27 '09 at 21:45</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2072/andrew-coleson"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/9a45de8df0c5c3f6e137c785e71557b8?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2072/andrew-coleson">Andrew Coleson</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,806</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="22 silver badges"><span class="badge2"></span><span class="badgecount">22</span></span><span title="30 bronze badges"><span class="badge3"></span><span class="badgecount">30</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1343909" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-1179230" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">*1 I mean +1 lol :)</span>
+                    &ndash;&nbsp;<a href="/users/127893/arak"
+                       title="53,567 reputation"
+                       class="comment-user">AraK</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-27 21:54:15Z" class="relativetime-clean">Aug 27 '09 at 21:54</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-32459776" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This way is better because there is no loss of precision.</span>
+                    &ndash;&nbsp;<a href="/users/1060520/albert"
+                       title="783 reputation"
+                       class="comment-user">albert</a>
+                <span class="comment-date" dir="ltr"><span title="2014-02-01 18:45:20Z" class="relativetime-clean">Feb 1 '14 at 18:45</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-39070086" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@albert This also has the advantage of no loss of <code>float</code> range as <code>val * 100</code> could overflow.</span>
+                    &ndash;&nbsp;<a href="/users/2410359/chux"
+                       title="49,167 reputation"
+                       class="comment-user">chux</a>
+                <span class="comment-date" dir="ltr"><span title="2014-08-03 15:52:27Z" class="relativetime-clean">Aug 3 '14 at 15:52</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1343909" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="1343941"></a>
+<div id="answer-1343941" class="answer" data-answerid="1343941"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1343941">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">30</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Assuming you're talking about round the value for printing, then <a href="http://stackoverflow.com/questions/1343890/rounding-number-to-2-decimal-places-in-c/1343909#1343909">Andrew Coleson</a> and <a href="http://stackoverflow.com/questions/1343890/rounding-number-to-2-decimal-places-in-c/1343910#1343910">AraK</a>'s answer are correct:</p>
+
+<pre><code>printf("%.2f", 37.777779);
+</code></pre>
+
+<p>But note that if you're aiming to round the number to exactly 37.78 for internal use (eg to compare against another value), then this isn't a good idea, due to the way floating point numbers work: you usually don't want to do equality comparisons for floating point, instead use a target value +/- a sigma value.  Or encode the number as a string with a known precision, and compare that.</p>
+
+<p>See the link in <a href="http://stackoverflow.com/questions/273371/real-vs-floating-point-vs-money/273383#273383">Greg Hewgill's answer to a related question</a>, which also covers why you shouldn't use floating point for financial calculations.</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/1343941/6928432" title="short permalink to this answer" class="short-link" id="link-post-1343941">share</a><span class="lsep">|</span><a href="/posts/1343941/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/1343941/revisions" title="show all edits to this post">edited <span title="2012-11-08 19:00:33Z" class="relativetime">Nov 8 '12 at 19:00</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2009-08-27 21:51:11Z" class="relativetime">Aug 27 '09 at 21:51</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/8331/john-carter"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/3ce84a62a7d3c7b029310d45cd280f02?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/8331/john-carter">John Carter</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 34,251" dir="ltr">34.3k</span><span title="18 gold badges"><span class="badge1"></span><span class="badgecount">18</span></span><span title="78 silver badges"><span class="badge2"></span><span class="badgecount">78</span></span><span title="117 bronze badges"><span class="badge3"></span><span class="badgecount">117</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1343941" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-1180257" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Upvoted for addressing what may be the question behind the question (or the question that should have been behind the question!).  That&#39;s a rather important point.</span>
+                    &ndash;&nbsp;<a href="/users/102916/brooks-moses"
+                       title="7,030 reputation"
+                       class="comment-user">Brooks Moses</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 03:13:46Z" class="relativetime-clean">Aug 28 '09 at 3:13</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-17817843" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Actually 37.78 can be presented exactly by floating point. Float has 11 to 12 digit for precission. That should be enough to address 3778 377.8 or all kind of 4 decimal digit.</span>
+                    &ndash;&nbsp;<a href="/users/853706/anonymous-white"
+                       title="1,329 reputation"
+                       class="comment-user">Anonymous White</a>
+                <span class="comment-date" dir="ltr"><span title="2012-10-28 09:56:09Z" class="relativetime-clean">Oct 28 '12 at 9:56</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-18129903" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@HaryantoCiu yeah fair enough, I&#39;ve editted my answer a little.</span>
+                    &ndash;&nbsp;<a href="/users/8331/john-carter"
+                       title="34,251 reputation"
+                       class="comment-user">John Carter</a>
+                <span class="comment-date" dir="ltr"><span title="2012-11-08 19:00:50Z" class="relativetime-clean">Nov 8 '12 at 19:00</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1343941" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="1344260"></a>
+<div id="answer-1344260" class="answer" data-answerid="1344260"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1344260">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">15</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>How about this:</p>
+
+<pre><code>float value = 37.777779;
+float rounded = ((int)(value * 100 + .5) / 100.0);
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/1344260/6928432" title="short permalink to this answer" class="short-link" id="link-post-1344260">share</a><span class="lsep">|</span><a href="/posts/1344260/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2009-08-27 23:21:31Z" class="relativetime">Aug 27 '09 at 23:21</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/154445/daniil"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/379b8c8a80f994cb80af8ac47948e3ea?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/154445/daniil">Daniil</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">883</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="26 bronze badges"><span class="badge3"></span><span class="badgecount">26</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1344260" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-1181212" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">-1: a) this won&#39;t work for negative numbers (ok, the example is positive but still).  b) you don&#39;t mention that it&#39;s impossible to store the exact decimal value in the float</span>
+                    &ndash;&nbsp;<a href="/users/8331/john-carter"
+                       title="34,251 reputation"
+                       class="comment-user">John Carter</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 08:28:12Z" class="relativetime-clean">Aug 28 '09 at 8:28</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1182534" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="hot">18</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@therefromhere: (a) You&#39;re right (b) What is this? A high school test?</span>
+                    &ndash;&nbsp;<a href="/users/154445/daniil"
+                       title="883 reputation"
+                       class="comment-user">Daniil</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 13:20:49Z" class="relativetime-clean">Aug 28 '09 at 13:20</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-49299162" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">:D @Danil nice reply :)</span>
+                    &ndash;&nbsp;<a href="/users/1900189/muhammad-adnan"
+                       title="2,303 reputation"
+                       class="comment-user">Muhammad Adnan</a>
+                <span class="comment-date" dir="ltr"><span title="2015-06-03 09:44:02Z" class="relativetime-clean">Jun 3 '15 at 9:44</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-62693926" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">why you added 0.5?</span>
+                    &ndash;&nbsp;<a href="/users/3643163/titanscomputer"
+                       title="93 reputation"
+                       class="comment-user">titanscomputer</a>
+                <span class="comment-date" dir="ltr"><span title="2016-06-03 01:48:35Z" class="relativetime-clean">Jun 3 at 1:48</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-62899030" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It&#39;s necessary to follow rounding rules.</span>
+                    &ndash;&nbsp;<a href="/users/154445/daniil"
+                       title="883 reputation"
+                       class="comment-user">Daniil</a>
+                <span class="comment-date" dir="ltr"><span title="2016-06-08 20:51:10Z" class="relativetime-clean">Jun 8 at 20:51</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1344260" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="1343910"></a>
+<div id="answer-1343910" class="answer" data-answerid="1343910"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1343910">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">14</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre><code>printf("%.2f", 37.777779);
+</code></pre>
+
+<p>If you want to write to C-string:</p>
+
+<pre><code>char number[24]; // dummy size, you should take care of the size!
+sprintf(number, "%.2f", 37.777779);
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/1343910/6928432" title="short permalink to this answer" class="short-link" id="link-post-1343910">share</a><span class="lsep">|</span><a href="/posts/1343910/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/1343910/revisions" title="show all edits to this post">edited <span title="2009-08-28 14:17:52Z" class="relativetime">Aug 28 '09 at 14:17</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1088/aib"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/b0cd96e85f7e75a113e37f0fec7b39fb?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1088/aib">aib</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 26,516" dir="ltr">26.5k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="56 silver badges"><span class="badge2"></span><span class="badgecount">56</span></span><span title="72 bronze badges"><span class="badge3"></span><span class="badgecount">72</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2009-08-27 21:45:02Z" class="relativetime">Aug 27 '09 at 21:45</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/127893/arak"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/8da618b78da4991fca5c5bd5835b6e19?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/127893/arak">AraK</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 53,567" dir="ltr">53.6k</span><span title="25 gold badges"><span class="badge1"></span><span class="badgecount">25</span></span><span title="131 silver badges"><span class="badge2"></span><span class="badgecount">131</span></span><span title="213 bronze badges"><span class="badge3"></span><span class="badgecount">213</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1343910" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-1182932" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Sinan: Why the edit? @AraK: No, <i>you</i> should take care of the size :). Use snprintf().</span>
+                    &ndash;&nbsp;<a href="/users/1088/aib"
+                       title="26,516 reputation"
+                       class="comment-user">aib</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 14:17:36Z" class="relativetime-clean">Aug 28 '09 at 14:17</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1182959" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@aib: I would guess because /**/ are C style comments and the question is tagged for C</span>
+                    &ndash;&nbsp;<a href="/users/29/michael-haren"
+                       title="61,123 reputation"
+                       class="comment-user">Michael Haren</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 14:20:19Z" class="relativetime-clean">Aug 28 '09 at 14:20</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1194303" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Michael: So are //.</span>
+                    &ndash;&nbsp;<a href="/users/1088/aib"
+                       title="26,516 reputation"
+                       class="comment-user">aib</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-31 13:49:34Z" class="relativetime-clean">Aug 31 '09 at 13:49</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1219844" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">C89 only allowed /**/-style, C99 introduced support for //-style. Use a lame/old compiler (or force C89 mode) and you&#39;ll be unable to use //-style. Having said that, it&#39;s 2009, let&#39;s consider them both C and C++ style.</span>
+                    &ndash;&nbsp;<a href="/users/2072/andrew-coleson"
+                       title="4,806 reputation"
+                       class="comment-user">Andrew Coleson</a>
+                <span class="comment-date" dir="ltr"><span title="2009-09-04 17:28:24Z" class="relativetime-clean">Sep 4 '09 at 17:28</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1343910" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="18392881"></a>
+<div id="answer-18392881" class="answer" data-answerid="18392881"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="18392881">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Also, if you're using C++, you can just create a function like this:</p>
+
+<pre><code>string prd(const double x, const int decDigits) {
+    stringstream ss;
+    ss &lt;&lt; fixed;
+    ss.precision(decDigits); // set # places after decimal
+    ss &lt;&lt; x;
+    return ss.str();
+}
+</code></pre>
+
+<p>You can then output any double <code>myDouble</code> with <code>n</code> places after the decimal point with code such as this:</p>
+
+<pre><code>std::cout &lt;&lt; prd(myDouble,n);
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/18392881/6928432" title="short permalink to this answer" class="short-link" id="link-post-18392881">share</a><span class="lsep">|</span><a href="/posts/18392881/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-08-23 00:31:51Z" class="relativetime">Aug 23 '13 at 0:31</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1325279/synaptik"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/d88cbd69376900c3965cefffe5653d90?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1325279/synaptik">synaptik</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,313</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="32 silver badges"><span class="badge2"></span><span class="badgecount">32</span></span><span title="62 bronze badges"><span class="badge3"></span><span class="badgecount">62</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18392881" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-18392881" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="1343925"></a>
+<div id="answer-1343925" class="answer" data-answerid="1343925"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1343925">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>There isn't a way to round a <code>float</code> to another <code>float</code> because the rounded <code>float</code> may not be representable (a limitation of floating-point numbers).  For instance, say you round 37.777779 to 37.78, but the nearest representable number is 37.781.</p>
+
+<p>However, you <em>can</em> "round" a <code>float</code> by using a format string function.</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/1343925/6928432" title="short permalink to this answer" class="short-link" id="link-post-1343925">share</a><span class="lsep">|</span><a href="/posts/1343925/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2009-08-27 21:47:54Z" class="relativetime">Aug 27 '09 at 21:47</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/68086/andrew-keeton"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/b2199cac7c940b3b0d3bfede5ec41939?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/68086/andrew-keeton">Andrew Keeton</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 10,767" dir="ltr">10.8k</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="30 silver badges"><span class="badge2"></span><span class="badgecount">30</span></span><span title="57 bronze badges"><span class="badge3"></span><span class="badgecount">57</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1343925" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-1180250" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is no different from saying &quot;there&#39;s no way to divide two floats and get a float, because the divided result may not be representable,&quot; which may be precisely true but is irrelevant.  Floats are always inexact, even for something as basic as addition; the assumption is always that what you actually get is &quot;the float that most closely approximates the exact rounded answer&quot;.</span>
+                    &ndash;&nbsp;<a href="/users/102916/brooks-moses"
+                       title="7,030 reputation"
+                       class="comment-user">Brooks Moses</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 03:11:56Z" class="relativetime-clean">Aug 28 '09 at 3:11</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1180284" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What I meant is that you cannot round a <code>float</code> to n decimal places and then expect the result always have n decimal places.  You will still get a <code>float</code>, just not the one you expected.</span>
+                    &ndash;&nbsp;<a href="/users/68086/andrew-keeton"
+                       title="10,767 reputation"
+                       class="comment-user">Andrew Keeton</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 03:28:12Z" class="relativetime-clean">Aug 28 '09 at 3:28</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1343925" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="12063105"></a>
+<div id="answer-12063105" class="answer" data-answerid="12063105"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="12063105">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>In C++ (or in C with C-style casts), you could create the function:</p>
+
+<pre><code>/* Function to control # of decimal places to be output for x */
+double showDecimals(const double&amp; x, const int&amp; numDecimals) {
+    int y=x;
+    double z=x-y;
+    double m=pow(10,numDecimals);
+    double q=z*m;
+    double r=round(q);
+
+    return static_cast&lt;double&gt;(y)+(1.0/m)*r;
+}
+</code></pre>
+
+<p>Then <code>std::cout &lt;&lt; showDecimals(37.777779,2);</code> would produce: 37.78.</p>
+
+<p>Obviously you don't really need to create all 5 variables in that function, but I leave them there so you can see the logic.  There are probably simpler solutions, but this works well for me--especially since it allows me to adjust the number of digits after the decimal place as I need.</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/12063105/6928432" title="short permalink to this answer" class="short-link" id="link-post-12063105">share</a><span class="lsep">|</span><a href="/posts/12063105/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-08-21 21:11:27Z" class="relativetime">Aug 21 '12 at 21:11</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1325279/synaptik"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/d88cbd69376900c3965cefffe5653d90?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1325279/synaptik">synaptik</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,313</span><span title="5 gold badges"><span class="badge1"></span><span class="badgecount">5</span></span><span title="32 silver badges"><span class="badge2"></span><span class="badgecount">32</span></span><span title="62 bronze badges"><span class="badge3"></span><span class="badgecount">62</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-12063105" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-12063105" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="1344213"></a>
+<div id="answer-1344213" class="answer" data-answerid="1344213"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1344213">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can still use:</p>
+
+<pre><code>float ceilf(float x); // don't forget #include &lt;math.h&gt; and link with -lm.
+</code></pre>
+
+<p>example:</p>
+
+<pre><code>float valueToRound = 37.777779;
+float roundedValue = ceilf(valueToRound * 100) / 100;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/1344213/6928432" title="short permalink to this answer" class="short-link" id="link-post-1344213">share</a><span class="lsep">|</span><a href="/posts/1344213/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/1344213/revisions" title="show all edits to this post">edited <span title="2009-08-28 08:00:52Z" class="relativetime">Aug 28 '09 at 8:00</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2009-08-27 23:04:44Z" class="relativetime">Aug 27 '09 at 23:04</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/141830/zerocool"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/8218b2bfe3b134755128deccb2ba9b6c?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/141830/zerocool">ZeroCool</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">821</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="27 bronze badges"><span class="badge3"></span><span class="badgecount">27</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1344213" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-1179626" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This truncates at decimal point (i.e. will produce 37), and he needs to round to two places <i>after</i> the decimal point.</span>
+                    &ndash;&nbsp;<a href="/users/111335/pavel-minaev"
+                       title="75,215 reputation"
+                       class="comment-user">Pavel Minaev</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-27 23:23:56Z" class="relativetime-clean">Aug 27 '09 at 23:23</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1180232" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Rounding to two places after the decimal point is a trivial variation, though (but still should be mentioned in the answer; ZeroCool, want to add an edit?):  float roundedValue = ceilf(valueToRound * 100.0) / 100.0;</span>
+                    &ndash;&nbsp;<a href="/users/102916/brooks-moses"
+                       title="7,030 reputation"
+                       class="comment-user">Brooks Moses</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 03:07:46Z" class="relativetime-clean">Aug 28 '09 at 3:07</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-1181123" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Into a state of sleep :)</span>
+                    &ndash;&nbsp;<a href="/users/141830/zerocool"
+                       title="821 reputation"
+                       class="comment-user">ZeroCool</a>
+                <span class="comment-date" dir="ltr"><span title="2009-08-28 08:02:11Z" class="relativetime-clean">Aug 28 '09 at 8:02</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-30366112" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">How come this solution isn&#39;t more popular? This works exactly how it should with minimal code. Is there some caveat with it?</span>
+                    &ndash;&nbsp;<a href="/users/1204153/sonic"
+                       title="308 reputation"
+                       class="comment-user">Sonic</a>
+                <span class="comment-date" dir="ltr"><span title="2013-12-03 05:35:49Z" class="relativetime-clean">Dec 3 '13 at 5:35</span></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1344213" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="23098163"></a>
+<div id="answer-23098163" class="answer" data-answerid="23098163"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="23098163">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">3</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre><code>double f_round(double dval, int n)
+{
+    char l_fmtp[32], l_buf[64];
+    char *p_str;
+    sprintf (l_fmtp, "%%.%df", n);
+    if (dval&gt;=0)
+            sprintf (l_buf, l_fmtp, dval);
+    else
+            sprintf (l_buf, l_fmtp, dval);
+    return ((double)strtod(l_buf, &amp;p_str));
+
+}
+</code></pre>
+
+<p>Here <code>n</code> is the number of decimals</p>
+
+<p>example:</p>
+
+<pre><code>double d = 100.23456;
+
+printf("%f", f_round(d, 4));// result: 100.2346
+
+printf("%f", f_round(d, 2));// result: 100.23
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/23098163/6928432" title="short permalink to this answer" class="short-link" id="link-post-23098163">share</a><span class="lsep">|</span><a href="/posts/23098163/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="/posts/23098163/revisions" title="show all edits to this post">edited <span title="2014-04-16 03:20:39Z" class="relativetime">Apr 16 '14 at 3:20</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/914686/werner"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/aNU1b.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/914686/werner">Werner</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,563</span><span title="4 gold badges"><span class="badge1"></span><span class="badgecount">4</span></span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="40 bronze badges"><span class="badge3"></span><span class="badgecount">40</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-04-16 02:53:18Z" class="relativetime">Apr 16 '14 at 2:53</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2331026/user2331026"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/6bbe0b5abfd26dc7869dc47d3cf42048?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2331026/user2331026">user2331026</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">31</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-23098163" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-23098163" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="25107441"></a>
+<div id="answer-25107441" class="answer" data-answerid="25107441"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="25107441">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">3</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Use <code>float roundf(float x)</code>.</p>
+
+<p>"The round functions round their argument to the nearest integer value in floating-point format, rounding halfway cases away from zero, regardless of the current rounding direction."  C11dr §7.12.9.5</p>
+
+<pre><code>#include &lt;math.h&gt;
+float y = roundf(x * 100.0f) / 100.0f; 
+</code></pre>
+
+<hr>
+
+<p>Depending on your <code>float</code> implementation, numbers that may appear to be half-way are not. as floating-point is typically base-2 oriented.   Further, precisely rounding to the nearest <code>0.01</code> on all "half-way" cases is most challenging.</p>
+
+<pre><code>void r100(const char *s) {
+  float x, y;
+  sscanf(s, "%f", &amp;x);
+  y = round(x*100.0)/100.0;
+  printf("%6s %.12e %.12e\n", s, x, y);
+}
+
+int main(void) {
+  r100("1.115");
+  r100("1.125");
+  r100("1.135");
+  return 0;
+}
+
+ 1.115 1.115000009537e+00 1.120000004768e+00  
+ 1.125 1.125000000000e+00 1.129999995232e+00
+ 1.135 1.134999990463e+00 1.139999985695e+00
+</code></pre>
+
+<p>Although "1.115" is "half-way" between 1.11 and 1.12, when converted to <code>float</code>, the value is <code>1.115000009537...</code> and is no longer "half-way", but closer to 1.12 and rounds to the closest <code>float</code> of <code>1.120000004768...</code></p>
+
+<p>"1.125" is "half-way" between 1.12 and 1.13, when converted to <code>float</code>, the value is exactly <code>1.125</code> and is "half-way". It rounds toward 1.13 due to ties to even rule and rounds to the closest <code>float</code> of <code>1.129999995232...</code></p>
+
+<p>Although "1.135" is "half-way" between 1.13 and 1.14, when converted to <code>float</code>, the value is <code>1.134999990463...</code> and is no longer "half-way", but closer to 1.13 and rounds to the closest <code>float</code> of <code>1.129999995232...</code></p>
+
+<p>If code used </p>
+
+<pre><code>y = roundf(x*100.0f)/100.0f;
+</code></pre>
+
+<p>Although "1.135" is "half-way" between 1.13 and 1.14, when converted to <code>float</code>, the value is <code>1.134999990463...</code> and is no longer "half-way", but closer to 1.13 but <strong>incorrectly</strong> rounds to <code>float</code> of <code>1.139999985695...</code> due to the more limited precision of <code>float</code> vs. <code>double</code>.  This incorrect value may be viewed as correct, depending on coding goals.</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/25107441/6928432" title="short permalink to this answer" class="short-link" id="link-post-25107441">share</a><span class="lsep">|</span><a href="/posts/25107441/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-08-03 17:50:46Z" class="relativetime">Aug 3 '14 at 17:50</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2410359/chux"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/pIl9T.png?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2410359/chux">chux</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 49,167" dir="ltr">49.2k</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="33 silver badges"><span class="badge2"></span><span class="badgecount">33</span></span><span title="85 bronze badges"><span class="badge3"></span><span class="badgecount">85</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-25107441" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-25107441" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="35609192"></a>
+<div id="answer-35609192" class="answer" data-answerid="35609192"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="35609192">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>this function takes the number and precision and returns the rounded off number</p>
+
+<pre><code>float roundoff(float num,int precision)
+{
+      int temp=(int )(num*pow(10,precision));
+      int num1=num*pow(10,precision+1);
+      temp*=10;
+      temp+=5;
+      if(num1&gt;=temp)
+              num1+=10;
+      num1/=10;
+      num1*=10;
+      num=num1/pow(10,precision+1);
+      return num;
+}
+</code></pre>
+
+<p>it converts the floating point number into int by left shifting the point and checking for the greater than five condition.</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/35609192/6928432" title="short permalink to this answer" class="short-link" id="link-post-35609192">share</a><span class="lsep">|</span><a href="/posts/35609192/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-02-24 17:37:28Z" class="relativetime">Feb 24 at 17:37</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/3888438/kapil"><div class="gravatar-wrapper-32"><img src="https://i.stack.imgur.com/0FYh2.jpg?s=32&amp;g=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/3888438/kapil">kapil</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">341</span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="15 bronze badges"><span class="badge3"></span><span class="badgecount">15</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-35609192" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-35609192" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="39617092"></a>
+<div id="answer-39617092" class="answer" data-answerid="39617092"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="39617092">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Try this one.
+it will give a double with two decimal places.</p>
+
+<pre><code>                int ttt = round(value * 100);
+                string str = to_string(ttt);
+                str.insert (str.end()-2,1,'.');
+                double temp = ::strtod(str.c_str(), 0);
+                obPrinciple = temp;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/39617092/6928432" title="short permalink to this answer" class="short-link" id="link-post-39617092">share</a><span class="lsep">|</span><a href="/posts/39617092/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-09-21 12:51:12Z" class="relativetime">Sep 21 at 12:51</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/2854755/aaban-tariq-murtaza"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/8e05bf9b7c111b6d0906c7efe39ef9c8?s=32&amp;d=identicon&amp;r=PG&amp;f=1" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/2854755/aaban-tariq-murtaza">Aaban Tariq Murtaza</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">151</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-39617092" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-66540624" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The question is tagged <code>c</code>, not <code>c++</code>.  Furthermore, it does not work for values below <code>1.0</code>.</span>
+                    &ndash;&nbsp;<a href="/users/4593267/chqrlie"
+                       title="33,066 reputation"
+                       class="comment-user">chqrlie</a>
+                <span class="comment-date" dir="ltr"><span title="2016-09-21 12:53:08Z" class="relativetime-clean">Sep 21 at 12:53</span></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-39617092" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+
+  
+<a name="36941793"></a>
+<div id="answer-36941793" class="answer" data-answerid="36941793"  itemscope itemtype="http://schema.org/Answer">
+    <table>
+        <tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="36941793">
+        <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">-2</span>
+        <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I made this macro for round float numbers
+Add it in your header / being of file</p>
+
+<pre><code>#define ROUNDF(f, c) (((float)((int)((f) * (c))) / (c)))
+</code></pre>
+
+<p>here is an example:</p>
+
+<pre><code>float x = ROUNDF(3.141592, 100)
+</code></pre>
+
+<p>x equals 3.14 :)</p>
+    </div>
+    <table class="fw">
+    <tr>
+    <td class="vt">
+<div class="post-menu"><a href="/a/36941793/6928432" title="short permalink to this answer" class="short-link" id="link-post-36941793">share</a><span class="lsep">|</span><a href="/posts/36941793/edit" class="suggest-edit-post" title="revise and improve this post">edit</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="/posts/36941793/revisions" title="show all edits to this post">edited <span title="2016-06-26 07:29:53Z" class="relativetime">Jun 26 at 7:29</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-04-29 15:06:54Z" class="relativetime">Apr 29 at 15:06</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="/users/1722117/mou"><div class="gravatar-wrapper-32"><img src="https://www.gravatar.com/avatar/82b1d8ed778611aaa966a637b875e869?s=32&amp;d=identicon&amp;r=PG" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="/users/1722117/mou">mou</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">563</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-36941793" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0"
+                       data-canpost="false"
+                       data-cansee="true"
+                       data-comments-unavailable="false"
+                       data-addlink-disabled="true">
+
+
+
+    <tr id="comment-63445078" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Your macros is wrong - for example, if <code>f</code> is <code>2 + 3</code>.  If you were foolish enough to use macros, you should always put parens around each parameter BUT to use a macro for this calculation is a terrible, terrible, terrible idea - generally macros are very dangerous, untyped, liable to collisions, subtle bugs, etc.</span>
+                    &ndash;&nbsp;<a href="/users/43839/tom-swirly"
+                       title="1,542 reputation"
+                       class="comment-user">Tom Swirly</a>
+                <span class="comment-date" dir="ltr"><span title="2016-06-23 19:42:51Z" class="relativetime-clean">Jun 23 at 19:42</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-63512201" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received"
+                                      class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Edited, thats right</span>
+                    &ndash;&nbsp;<a href="/users/1722117/mou"
+                       title="563 reputation"
+                       class="comment-user">mou</a>
+                <span class="comment-date" dir="ltr"><span title="2016-06-26 07:30:22Z" class="relativetime-clean">Jun 26 at 7:30</span></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-36941793" data-rep=50 data-reg=true>
+
+                <a class="js-add-link comments-link disabled-link "
+                   title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."
+                   >add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+        </div>         
+    </td>
+</tr>    </table>
+</div>
+									<a name='new-answer'></a>
+						<form id="post-form" action="/questions/1343890/answer/submit" method="post"  class="post-form">
+						    <input type="hidden" id="post-id" value="1343890" />
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" />
+                            <input type="hidden" name="referrer" value="https://www.google.co.in"/>
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: false,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="cfbcd4a9f2504dc5bf9e2eb74d7a3f1d">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="#" class="btn-clear discard-answer dno">discard</a>
+								</div>
+						</form>
+
+
+
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+
+
+
+<script>
+    window.showNewUser = false;
+
+</script>
+
+<div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+    <h4>Hello World!</h4>
+    <div>
+        <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free.</p><p>Got a question about the site itself? <a href="http://meta.stackoverflow.com">meta</a> is the place to talk about things like what questions are appropriate, what tags we should use, etc.</p>
+        <p class="ar">
+                <a href="/tour?mnu=1">about &raquo;</a>&nbsp;&nbsp;&nbsp;
+            <a href="/help?mnu=1">help &raquo;</a>
+                &nbsp; <a href="http://meta.stackoverflow.com">meta &raquo;</a>
+        </p>
+    </div>
+</div>
+    <script>
+    if (showNewUser) {
+        document.getElementById('newuser-box').style.display = '';
+    }
+    </script>						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2009-08-27 21:41:57Z"><b>7 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>383840 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2016-09-26 03:18:06Z">3 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </table>
+			    </div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Featured on Meta
+                </div>
+                <hr />
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="http://meta.stackoverflow.com/questions/339974/the-dawn-of-documentation-a-solstice-update" class="question-hyperlink">
+<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="http://meta.stackoverflow.com/questions/339974/the-dawn-of-documentation-a-solstice-update" class="question-hyperlink">The dawn of Documentation: a solstice update</a>
+                </div>
+                <br class="cbt" />
+            </div>
+                <div class="bulletin-title">
+                    Hot Meta Posts
+                </div>
+                <hr />
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">7</span>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="http://meta.stackoverflow.com/questions/340447/minimum-reputation-requirements-for-documentation-changes" class="question-hyperlink">Minimum reputation requirements for documentation changes?</a>
+                </div>
+                <br class="cbt" />
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">28</span>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="http://meta.stackoverflow.com/questions/340326/connotation-of-question-marked-as-duplicate" class="question-hyperlink">Connotation of question &ldquo;marked as duplicate&rdquo;</a>
+                </div>
+                <br class="cbt" />
+            </div>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <span title="Vote score (upvotes - downvotes)">29</span>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="http://meta.stackoverflow.com/questions/340380/duplicate-question-and-answer-from-user-in-same-location" class="question-hyperlink">Duplicate question and answer from user in same location</a>
+                </div>
+                <br class="cbt" />
+            </div>
+    </div>
+</div>			
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1067196405",[5,17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1067196405"></div>
+            <div id="hireme"></div>
+        <script>
+window.clcfl_request = 'ArrOR8W7L9QIu35WAJKBFAACAAAAAgAAAAMsAAAAfGN8ZmxvYXRpbmctcG9pbnR8ZGVjaW1hbHx4LXVzZXItcmVnaXN0ZXJlZHwA4lhTwS4PJywJkw';
+;(function(n){var t,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(n.allowed[0]!=="*"&&n.allowed.indexOf(location.hostname)===-1)return;t=window;t.clc=t.clc||{};r=t.clc_request||t.clcfl_request;r||void 0;t.clc.init=t.clc.init||[];t.clc.init.push(function(n){return n.load()});t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(u){void 0}}).call(null, {"azw":true,"kt":2000,"tto":true,"autoload":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"allowed":["stackoverflow.com","serverfault.com","blog.codinghorror.com","talent.stackoverflow.com"],"h":"clc.stackoverflow.com","u":"//clc.stackoverflow.com/markup.js","lib":"//cdn.sstatic.net/clc/clc.min.js?v=c1d06cbc75b3"});        </script>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="/q/15429221" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">9</div>
+	</a>
+	<a href="/questions/15429221/how-to-round-decimal-for-2-decimal-places-in-objective-c?noredirect=1" class="question-hyperlink">How to round decimal for 2 decimal places in Objective-C</a>
+</div>
+<div class="spacer">
+	<a href="/q/9849535" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="/questions/9849535/how-to-round-a-double-to-n-decimals?noredirect=1" class="question-hyperlink">how to round a double to n decimals?</a>
+</div>
+<div class="spacer">
+	<a href="/q/3237247" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="/questions/3237247/c-rounding-to-the-nths-place?noredirect=1" class="question-hyperlink">C++ Rounding to the _nths place</a>
+</div>
+<div class="spacer">
+	<a href="/q/14003487" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="/questions/14003487/round-in-c-with-n-digits-after-decimal-point?noredirect=1" class="question-hyperlink">Round in C with N digits after decimal point</a>
+</div>
+<div class="spacer">
+	<a href="/q/21373034" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">-1</div>
+	</a>
+	<a href="/questions/21373034/c-program-to-round-numbers-rounded-to-second-position-after-the-decimal-place?noredirect=1" class="question-hyperlink">C program to round numbers, rounded to second position after the decimal place</a>
+</div>
+<div class="spacer">
+	<a href="/q/13522670" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="/questions/13522670/how-to-round-a-float-to-particular-number-of-digits-after-decimal-point?noredirect=1" class="question-hyperlink">How to round a float to particular number of digits after decimal point?</a>
+</div>
+<div class="spacer">
+	<a href="/q/31655445" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/31655445/one-digit-after-the-decimal-point-in-input?noredirect=1" class="question-hyperlink">One digit after the decimal point in input</a>
+</div>
+<div class="spacer">
+	<a href="/q/33165759" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="/questions/33165759/how-do-i-round-off-to-the-nearest-05-or-10-in-c?noredirect=1" class="question-hyperlink">How do I round off to the nearest .05 or .10 in C?</a>
+</div>
+<div class="spacer">
+	<a href="/q/18063721" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">19</div>
+	</a>
+	<a href="/questions/18063721/ios-objective-c-how-to-get-2-decimal-rounded-float-value?noredirect=1" class="question-hyperlink">iOS Objective-C How to get 2 decimal rounded float value?</a>
+</div>
+<div class="spacer">
+	<a href="/q/273371" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">19</div>
+	</a>
+	<a href="/questions/273371/real-vs-floating-point-vs-money?noredirect=1" class="question-hyperlink">Real vs. Floating Point vs. Money</a>
+</div>					<div class="spacer more">
+				<a href="/questions/linked/1343890">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer"><a href="/q/153724" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">716</div></a><a href="/questions/153724/how-to-round-a-number-to-n-decimal-places-in-java" class="question-hyperlink">How to round a number to n decimal places in Java</a></div><div class="spacer"><a href="/q/560517" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">246</div></a><a href="/questions/560517/make-a-float-only-show-two-decimal-places" class="question-hyperlink">Make a float only show two decimal places</a></div><div class="spacer"><a href="/q/618535" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1433</div></a><a href="/questions/618535/difference-between-decimal-float-and-double-in-net" class="question-hyperlink">Difference between decimal, float and double in .NET?</a></div><div class="spacer"><a href="/q/6134039" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">305</div></a><a href="/questions/6134039/format-number-to-always-show-2-decimal-places" class="question-hyperlink">Format number to always show 2 decimal places</a></div><div class="spacer"><a href="/q/7312468" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">51</div></a><a href="/questions/7312468/javascript-round-to-a-number-of-decimal-places-but-strip-extra-zeros" class="question-hyperlink">JavaScript: Round to a number of decimal places, but strip extra zeros</a></div><div class="spacer"><a href="/q/9366280" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">60</div></a><a href="/questions/9366280/android-round-to-2-decimal-places" class="question-hyperlink">Android - Round to 2 decimal places</a></div><div class="spacer"><a href="/q/11013029" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="/questions/11013029/cant-round-number-to-two-decimal-places-using-floorf" class="question-hyperlink">Can&#39;t round number to two decimal places using floorf</a></div><div class="spacer"><a href="/q/11832914" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1166</div></a><a href="/questions/11832914/round-to-at-most-2-decimal-places" class="question-hyperlink">Round to at most 2 decimal places</a></div><div class="spacer"><a href="/q/26151252" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="/questions/26151252/how-to-shift-a-floating-point-value-to-the-nearest-one-that-can-be-represented-e" class="question-hyperlink">How to shift a floating-point value to the nearest one that can be represented exactly in a specific number of decimal places?</a></div><div class="spacer"><a href="/q/32938115" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="/questions/32938115/how-do-i-round-this-float-decimal-to-two-decimal-places" class="question-hyperlink">How do I round this float decimal to two decimal places?</a></div>
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="//stackexchange.com/questions?tab=hot" 
+           class="js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li >
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="http://parenting.stackexchange.com/questions/28367/how-can-we-get-our-son-to-stop-sleeping-in-our-bed" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can we get our son to stop sleeping in our bed?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/258165/statements-about-groups-proved-using-semigroups" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Statements about groups proved using semigroups
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/34228/how-does-the-faa-determine-which-format-of-location-identifier-to-assign-to-an-a" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does the FAA determine which format of location identifier to assign to an airport?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/333225/which-process-is-proc-self-for" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Which process is `/proc/self/` for?
+                </a>
+
+            </li>
+            <li >
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/301267/does-ohms-law-hold-in-space" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does Ohm&#39;s law hold in space?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="http://movies.stackexchange.com/questions/65781/procession-for-the-dead" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Procession for the dead
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/41347019/is-there-a-limit-to-the-number-of-nested-for-loops" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a limit to the number of nested &#39;for&#39; loops?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/333417/is-there-an-equivalent-for-vims-zs-in-sed-or-perl" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there an equivalent for vim&#39;s \zs in sed or perl?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/2075556/basis-that-generates-a-topology-for-a-connected-topological-space" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Basis that generates a topology for a connected topological space
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/34216/how-much-leverage-do-commerial-pilots-have-on-cruise-speed" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How much leverage do commerial pilots have on cruise speed?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/66096/encryption-in-the-19th-century" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Encryption in the 19th century
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-boardgames" title="Board &amp; Card Games Stack Exchange"></div><a href="http://boardgames.stackexchange.com/questions/33594/how-does-one-evaluate-a-locomotive-rainbow-card-in-ticket-to-ride" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:147 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does one evaluate a &quot;locomotive&quot; (rainbow card) in &quot;Ticket to Ride?&quot;
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/74120/personal-loan-to-renovate-my-mothers-home" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Personal loan to renovate my mother&#39;s home
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/1160927/where-does-metadata-go-when-you-save-a-file" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where does metadata go when you save a file?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/148634/why-does-hermione-dislike-professor-trelawney-from-the-start" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does Hermione dislike Professor Trelawney from the start?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/146643/is-using-basic-authentication-in-an-ios-app-safe" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is using Basic Authentication in an iOS App safe?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/82301/is-it-possible-to-get-a-professor-position-without-having-had-any-fellowships-in" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it possible to get a professor position without having had any fellowships in grad school?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/148545/did-mad-eye-moody-actually-die" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Did Mad-Eye Moody actually die?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-outdoors" title="The Great Outdoors Stack Exchange"></div><a href="http://outdoors.stackexchange.com/questions/14727/reacting-to-a-bee-attack" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Reacting to a bee attack
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/41370560/in-javadocs-how-should-i-write-plural-forms-of-singular-objects-in-code-tags" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In Javadocs, how should I write plural forms of singular Objects in &lt;code&gt; tags?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/148614/how-could-talia-winters-help-the-rogue-telepaths-against-bester" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How could Talia Winters help the rogue telepaths against Bester?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/104785/in-how-many-bits-do-i-fit" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In how many bits do I fit
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/146595/second-order-sql-injection-protection" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Second order SQL injection protection
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="http://codereview.stackexchange.com/questions/151019/implementing-realloc-in-c" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Implementing realloc in C
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="#" 
+           class="show-more js-show-more js-gps-track" 
+           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="/feeds/question/1343890" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/1343890/ivc/4dfe');});
+</script>
+<noscript>
+    <div><img src="/posts/1343890/ivc/4dfe" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-c</div></div>
+
+    <script>
+        $('#wmd-input').one("keypress", function() {
+            $.ajax({
+                url: '/accounts/email-settings-form',
+                cache: false,
+                success: function(data) {
+                    $('#submit-button').parent().prepend(data);
+                }
+            });
+        });
+
+    </script>
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="/tour">tour</a>
+                    <a href="/help">help</a>
+                    <a href="http://stackoverflow.blog?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com">chat</a>
+                    <a href="http://data.stackexchange.com">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tr>
+            <th colspan=4>
+                Technology
+            </th>
+            <th colspan=2>
+                Life / Arts
+            </th>
+            <th colspan=2>
+                Culture / Recreation
+            </th>
+            <th colspan=2>
+                Science
+            </th>
+            <th >
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="//stackoverflow.com" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="//serverfault.com" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="//superuser.com" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="//webapps.stackexchange.com" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="//askubuntu.com" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="//webmasters.stackexchange.com" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="//gamedev.stackexchange.com" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="//tex.stackexchange.com" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//softwareengineering.stackexchange.com" title="professionals, academics, and students working within the systems development life cycle who care about creating, delivering, and maintaining software responsibly">Software Engineering</a></li>
+                        <li><a href="//unix.stackexchange.com" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="//apple.stackexchange.com" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="//wordpress.stackexchange.com" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="//gis.stackexchange.com" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="//electronics.stackexchange.com" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="//android.stackexchange.com" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="//security.stackexchange.com" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//dba.stackexchange.com" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="//drupal.stackexchange.com" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="//sharepoint.stackexchange.com" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="//ux.stackexchange.com" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="//mathematica.stackexchange.com" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="//salesforce.stackexchange.com" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="//expressionengine.stackexchange.com" title="administrators, end users, developers and designers for ExpressionEngine&#174; CMS">ExpressionEngine&#174; Answers</a></li>
+                        <li><a href="//crypto.stackexchange.com" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//codereview.stackexchange.com" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="//magento.stackexchange.com" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="//dsp.stackexchange.com" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="//raspberrypi.stackexchange.com" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="//codegolf.stackexchange.com" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//photo.stackexchange.com" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="//scifi.stackexchange.com" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="//graphicdesign.stackexchange.com" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="//movies.stackexchange.com" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="//music.stackexchange.com" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="//cooking.stackexchange.com" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="//diy.stackexchange.com" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="//money.stackexchange.com" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//academia.stackexchange.com" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//english.stackexchange.com" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="//skeptics.stackexchange.com" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="//judaism.stackexchange.com" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="//travel.stackexchange.com" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="//christianity.stackexchange.com" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="//ell.stackexchange.com" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="//japanese.stackexchange.com" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="//gaming.stackexchange.com" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//bicycles.stackexchange.com" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="//rpg.stackexchange.com" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="//anime.stackexchange.com" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="//mechanics.stackexchange.com" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//mathoverflow.net" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="//math.stackexchange.com" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="//stats.stackexchange.com" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="//cstheory.stackexchange.com" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="//physics.stackexchange.com" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="//chemistry.stackexchange.com" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="//biology.stackexchange.com" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="//cs.stackexchange.com" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="//philosophy.stackexchange.com" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="//meta.stackexchange.com" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="//stackapps.com" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="//area51.stackexchange.com" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo &#169; 2016 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2016.12.24.1
+            </div>
+                </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    
+    
+        
+        ados.run.push(function () {
+                setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+                ados_setKeywords('c,floating-point,decimal,x-user-registered');; ados_load();
+        });   
+        
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            
+                ga('create', 'UA-5620270-1', {'userId': '5668539' });
+                
+        ga('create', 'UA-5620270-59', {'userId': '5668539' }, 'pageData');
+        
+                ga('set', 'dimension1', '5668539');                     ga('pageData.set', 'dimension1', '5668539');                 ga('set', 'dimension2', '|c|floating-point|decimal|');                     ga('pageData.set', 'dimension2', '|c|floating-point|decimal|');             ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    </body>
+</html>
